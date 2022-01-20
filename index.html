@@ -1,0 +1,60 @@
+<!--
+  =
+  !
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="variables.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Shopify Schema Manipulator</title>
+</head>
+<body>
+
+  <header class="section">
+    <h1 class="title">SCHEMA GENERATOR</h1>
+  </header>
+
+  <section class="section input-section">
+    <form class="form input-form">
+
+      <textarea class="textarea input-textarea" name="input-textarea" placeholder="Input field">{"name": "Collection", "tag": "section", "class": "collection-section"}</textarea>
+
+      <button class="btn btn-primary" type="submit">
+        GENERATE SCHEMA INTERFACE
+      </button>
+
+    </form>
+  </section>
+  
+  <section class="section output-section">
+    <form class="form output-form">
+
+      <div class="schema-interface__wrapper">
+        <div class="schema-interface__item schema-interface__section">
+          <span class="schema-interface__label">Section...</span>
+        </div>
+        <div class="schema-interface__item schema-interface__blocks">
+          <span class="schema-interface__label">Blocks...</span>
+        </div>
+      </div>
+
+      <div class="output-json">
+        <button class="btn" type="submit">GENERATE SCHEMA JSON</button>
+        <textarea class="textarea output-textarea" placeholder="Output field"></textarea>
+        <button class="btn copy-btn" type="button">COPY</button>
+        <div class="copy-success-message btn btn-yellow hide">Copied!</div>
+      </div>
+
+    </form>
+  </section>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>

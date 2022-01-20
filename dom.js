@@ -1,0 +1,7 @@
+export const $inputForm = document.querySelector('.input-form')
+export const $outputForm = document.querySelector('.output-form')
+export const $schemaInterfaceSection = document.querySelector('.schema-interface__section')
+export const $schemaInterfaceBlocks = document.querySelector('.schema-interface__blocks')
+export const $outputTextarea = document.querySelector('.output-textarea')
+export const $copyBtn = document.querySelector('.copy-btn')
+export const $copySuccessMessage = document.querySelector('.copy-success-message')

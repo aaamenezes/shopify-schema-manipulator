@@ -1,0 +1,12 @@
+{
+  "data": {
+    "sectionTags": [
+      "div",
+      "article",
+      "aside",
+      "footer",
+      "header",
+      "section"
+    ]
+  }
+}
