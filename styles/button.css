@@ -1,0 +1,68 @@
+.btn {
+  display: block;
+  padding: 1rem;
+  margin: 0 auto;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn.btn-primary {
+  border: 1px solid var(--red);
+  color: var(--white);
+  background-color: var(--red);
+}
+
+.btn.btn-primary:hover {
+  border: 1px solid var(--medium-red);
+  background-color: var(--medium-red);
+}
+
+.btn.btn-primary:focus {
+  border: 1px solid var(--dark-red);
+  background-color: var(--dark-red);
+}
+
+.btn.btn-primary.btn-black {
+  border: 1px solid var(--black);
+  color: var(--white);
+  background-color: var(--black);
+}
+
+.btn.btn-secondary {
+  border: 1px solid var(--red);
+  color: var(--red);
+  background-color: var(--white);
+}
+
+.btn.btn-secondary:hover {
+  border: 1px solid var(--medium-red);
+  color: var(--white);
+  background-color: var(--medium-red);
+}
+
+.btn.btn-secondary:focus {
+  border: 1px solid var(--dark-red);
+  color: var(--white);
+  background-color: var(--dark-red);
+}
+
+.btn.btn-secondary.btn-black {
+  border: 1px solid var(--black);
+  color: var(--black);
+  background-color: var(--white);
+}
+
+/* */
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-wrapper > .btn {
+  margin: 0;
+}
+
+.btn-wrapper > :not(:last-child) {
+  margin-right: 1rem;
+}

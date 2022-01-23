@@ -1,4 +1,6 @@
 export const $inputForm = document.querySelector('.input-form')
+export const $inputTextarea = document.querySelector('.input-textarea')
+export const $resetBtn = document.querySelector('.reset-btn')
 export const $outputForm = document.querySelector('.output-form')
 export const $schemaInterfaceSection = document.querySelector('.schema-interface__section')
 export const $schemaInterfaceBlocks = document.querySelector('.schema-interface__blocks')

@@ -1,11 +1,14 @@
+.input-form > :not(:last-child),
+.output-form > :not(:last-child),
+.output-json > :not(:last-child) {
+  margin-bottom: 1rem;
+}
+
 .schema-interface__wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: start;
-  margin-bottom: 1rem;
 }
-
-.schema-interface__item 
 
 .schema-interface__section {
   margin-right: 0.5rem;
@@ -30,6 +33,10 @@
   color: var(--gray);
 }
 
+.schema-interface__label:not(:first-child) {
+  margin-top: 2rem;
+}
+
 .element-item {
   display: flex;
   align-items: center;
@@ -50,7 +57,13 @@
   border-bottom: 2px dashed var(--red);
 }
 
+.output-json {
+  position: relative;
+}
+
 .copy-success-message {
-  width: fit-content;
-  margin: 0 auto;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 75%;
+  bottom: 0;
 }
