@@ -27,14 +27,23 @@
 }
 
 .schema-interface__label{
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--light-gray);
+  padding: 0 0 1rem;
+  border-bottom: 1px solid var(--gray);
   text-align: center;
   color: var(--gray);
 }
 
 .schema-interface__label:not(:first-child) {
+  padding: 1rem 0;
   margin-top: 2rem;
+  border-top: 1px solid var(--gray);
+}
+
+.schema-interface__line {
+  width: 30%;
+  margin: 2rem auto 0;
+  border: none;
+  border-top: 1px solid var(--light-gray);
 }
 
 .element-item {

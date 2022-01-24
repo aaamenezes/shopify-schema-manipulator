@@ -44,3 +44,9 @@ export function createSectionLabel(label){
   $span.innerText = label
   $schemaInterfaceSection.appendChild($span)
 }
+
+export function createLine() {
+  const $line = document.createElement('hr')
+  $line.classList.add('schema-interface__line')
+  $schemaInterfaceSection.appendChild($line)
+}

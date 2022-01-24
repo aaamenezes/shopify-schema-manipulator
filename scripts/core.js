@@ -1,6 +1,6 @@
 import { data } from '../data/data.js'
 import { $schemaInterfaceSection } from './dom.js'
-import { clearSchemaInterface, createElement, createSectionLabel } from './utils.js'
+import { clearSchemaInterface, createElement, createLine, createSectionLabel } from './utils.js'
 
 export function generateSchema(inputObj) {
   clearSchemaInterface()
@@ -20,8 +20,16 @@ function generateSchemaField(object, key) {
 }
 
 function generateSchemaSettings(settings) {
-  console.log('settings:', settings)
-  createSectionLabel('Settings')
+  createSectionLabel('Section settings')
+  
+  settings.forEach((setting, index) => {
+    if (index > 0) createLine()
+
+    console.log('setting:', setting)
+    createElement('type', 'type', setting.type, $schemaInterfaceSection)
+    createElement('id', 'id', setting.id, $schemaInterfaceSection)
+    createElement('label', 'label', setting.label, $schemaInterfaceSection)
+  })
 }
 
 function generateSchemaBlocks(blocks) {
