@@ -40,7 +40,7 @@ export function handleOutputForm(event) {
   $outputTextarea.value = outputJSON
 }
 
-export function handleSpanInput(event) {
+export function handleInput(event) {
   const value = event.target.innerText
   event.target.parentNode.setAttribute('data-value', value)
 }

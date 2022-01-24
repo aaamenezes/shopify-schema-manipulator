@@ -48,7 +48,6 @@
 
 .element-item {
   display: flex;
-  align-items: center;
   margin-top: 2rem;
 }
 
@@ -56,13 +55,14 @@
   margin: 0 1rem 0 0;
 }
 
-.element-item__value {
+.element-item__input {
   flex: 1;
   outline: none;
+  border: none;
   border-bottom: 2px dashed var(--light-gray);
 }
 
-.element-item__value:focus {
+.element-item__input:focus {
   border-bottom: 2px dashed var(--red);
 }
 

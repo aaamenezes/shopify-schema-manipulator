@@ -1,5 +1,5 @@
 import { $schemaInterfaceSection, $schemaInterfaceBlocks } from './dom.js'
-import { handleSpanInput } from './handlers.js'
+import { handleInput } from './handlers.js'
 
 export function clearSchemaInterface() {
   Array.from($schemaInterfaceSection.children).forEach((child, index) => {
@@ -29,12 +29,11 @@ export function createElement(label, key, value, $parent) {
   $label.setAttribute('data-key', key)
   $label.setAttribute('data-value', value)
 
-  const $span = document.createElement('span')
-  $span.innerText = value
-  $span.classList.add('element-item__value')
-  $span.setAttribute('contenteditable', 'true')
-  $span.oninput = handleSpanInput
-  $label.appendChild($span)
+  const $input = document.createElement('input')
+  $input.value = value
+  $input.classList.add('element-item__input')
+  $input.oninput = handleInput
+  $label.appendChild($input)
   $parent.appendChild($label)
 }
 
