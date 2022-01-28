@@ -18,5 +18,3 @@ $inputForm.onsubmit = handleInputForm
 $outputForm.onsubmit = handleOutputForm
 $copyBtn.onclick = handleCopy
 $resetBtn.onclick = handleReset
-
-// https://shopify.dev/themes/architecture/sections/section-schema#settings
