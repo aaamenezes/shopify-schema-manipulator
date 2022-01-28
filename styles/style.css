@@ -6,16 +6,16 @@
 
 .schema-interface__wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+  grid-gap: 3rem;
   align-items: start;
 }
 
-.schema-interface__section {
-  margin-right: 0.5rem;
-}
-
-.schema-interface__blocks {
-  margin-left: 0.5rem;
+@media screen and (min-width: 768px) {
+  .schema-interface__wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
 }
 
 .schema-interface__item {
