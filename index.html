@@ -14,6 +14,10 @@
 <body>
 
   <header class="section">
+    <a href="https://shopify.dev/themes/architecture/sections/section-schema#settings" target="_blank">Schema</a>
+  </header>
+
+  <header class="section">
     <h1 class="title">SCHEMA GENERATOR</h1>
   </header>
 
@@ -26,16 +30,22 @@
           "tag":"section",
           "class":"collection-section",
           "limit":"4",
-          "settings":[
+          "settings": [
             {
-                "type":"text",
-                "id":"header",
-                "label":"Header"
+              "type":"text",
+              "id":"header",
+              "label":"Header"
             },
             {
-                "type":"textarea",
-                "id":"description",
-                "label":"Description"
+              "type":"textarea",
+              "id":"description",
+              "label":"Description"
+            },
+            {
+              "type":"checkbox",
+              "id":"yes_or_not",
+              "label":"Yes or Not",
+              "default": "true"
             }
           ]
         }
@@ -78,6 +88,6 @@
     </form>
   </section>
 
-  <script type="module" src="scripts/script.js"></script>
+  <script type="module" src="scripts/main.js"></script>
 </body>
 </html>
