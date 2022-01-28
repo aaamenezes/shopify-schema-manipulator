@@ -1,5 +1,4 @@
 import { $schemaInterfaceSection, $schemaInterfaceBlocks } from './dom.js'
-import { handleInput } from './handlers.js'
 
 export function clearSchemaInterface() {
   Array.from($schemaInterfaceSection.children).forEach((child, index) => {
@@ -11,41 +10,15 @@ export function clearSchemaInterface() {
   })
 }
 
-export function createLabel(label) {
-  const $label = document.createElement('label')
-  $label.classList.add('element-item')
-
-  const $span = document.createElement('span')
-  $span.classList.add('element-item__label')
-  $span.innerHTML = label + ':'
-
-  $label.appendChild($span)
-
-  return $label
+export function createSectionTitle(label){
+  const $h3 = document.createElement('h3')
+  $h3.classList.add('schema-interface__label')
+  $h3.innerText = label
+  $schemaInterfaceSection.appendChild($h3)
 }
 
-export function createElement(label, key, value, $parent) {
-  const $label = createLabel(label)
-  $label.setAttribute('data-key', key)
-  $label.setAttribute('data-value', value)
-
-  const $input = document.createElement('input')
-  $input.value = value
-  $input.classList.add('element-item__input')
-  $input.oninput = handleInput
-  $label.appendChild($input)
-  $parent.appendChild($label)
-}
-
-export function createSectionLabel(label){
-  const $span = document.createElement('span')
-  $span.classList.add('schema-interface__label')
-  $span.innerText = label
-  $schemaInterfaceSection.appendChild($span)
-}
-
-export function createLine() {
+export function createLine($parent) {
   const $line = document.createElement('hr')
   $line.classList.add('schema-interface__line')
-  $schemaInterfaceSection.appendChild($line)
+  $parent.appendChild($line)
 }
