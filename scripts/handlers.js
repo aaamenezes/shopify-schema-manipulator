@@ -1,7 +1,12 @@
 import { generateSchema } from './generate-schema.js'
-import { $copySuccessMessage, $inputTextarea, $outputTextarea } from './dom.js'
 import { clearSchemaInterface } from './utils.js'
 import { generateJSON } from './generate-json.js'
+import {
+  $copySuccessMessage,
+  $inputTextarea,
+  $outputTextarea,
+  $schemaInterfaceSection
+} from './dom.js'
 
 export function handleInputForm(event) {
   event.preventDefault()
@@ -16,7 +21,7 @@ export function handleInputForm(event) {
   try {
     const inputObj = JSON.parse(inputJSON)
     clearSchemaInterface()
-    generateSchema(inputObj)
+    generateSchema(inputObj, $schemaInterfaceSection)
   } catch(error) {
     alert('Os dados inseridos não são um JSON válido\n\n' + error)
     return

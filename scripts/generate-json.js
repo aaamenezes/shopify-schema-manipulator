@@ -1,6 +1,9 @@
 import { $outputTextarea } from './dom.js'
 
 export function generateJSON($allFields) {
+  const $verifieds = document.querySelectorAll('[data-verified]')
+  $verifieds.forEach($field => $field.removeAttribute('data-verified'))
+
   const outputObj = {}
 
   $allFields.forEach($field => {
@@ -14,8 +17,7 @@ export function generateJSON($allFields) {
       const $fields = $superKeyParent.querySelectorAll('[data-key]')
       if (!outputObj[superKey]) outputObj[superKey] = []
       outputObj[superKey].push(generateJSONList($fields))
-      // invalid siblings
-      $fields.forEach($field => $field.setAttribute('data-verified', 'true'))
+      $fields.forEach($field => $field.setAttribute('data-verified', ''))
     } else {
       const { key, value } = $field.dataset
       outputObj[key] = value
@@ -28,16 +30,16 @@ export function generateJSON($allFields) {
 
 function generateJSONList($fields) {
   // tem que fazer um for antes
-  const blablabla = {}
+  const JSONList = {}
 
   $fields.forEach($field => {
     const { key, value } = $field.dataset
-    blablabla[key] = value
+    JSONList[key] = value
   })
 
-  return blablabla
+  return JSONList
 
-  // createSectionTitle(`Section ${key}`)
+  // createTitle(`Section ${key}`)
 
   // list.forEach((item, index) => {
   //   if (index > 0) createLine($schemaInterfaceSection)
