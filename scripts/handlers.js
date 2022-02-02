@@ -1,6 +1,7 @@
-import { generateSchema } from './core.js'
+import { generateSchema } from './generate-schema.js'
 import { $copySuccessMessage, $inputTextarea, $outputTextarea } from './dom.js'
 import { clearSchemaInterface } from './utils.js'
+import { generateJSON } from './generate-json.js'
 
 export function handleInputForm(event) {
   event.preventDefault()
@@ -14,6 +15,7 @@ export function handleInputForm(event) {
 
   try {
     const inputObj = JSON.parse(inputJSON)
+    clearSchemaInterface()
     generateSchema(inputObj)
   } catch(error) {
     alert('Os dados inseridos não são um JSON válido\n\n' + error)
@@ -23,25 +25,12 @@ export function handleInputForm(event) {
 
 export function handleOutputForm(event) {
   event.preventDefault()
-  const outputObj = {}
-  const $sectionFields = document.querySelectorAll('[data-key]')
-
-  if ($sectionFields.length > 0) {
-    $sectionFields.forEach(field => {
-      const key = field.getAttribute('data-key')
-      const value = field.getAttribute('data-value')
-      if (key && value) {
-        outputObj[key] = value
-      }
-    })
-  }
-
-  const outputJSON = JSON.stringify(outputObj)
-  $outputTextarea.value = outputJSON
+  const $allFields = Array.from(document.querySelectorAll('[data-key]'))
+  generateJSON($allFields)
 }
 
 export function handleInput(event) {
-  const value = event.target.innerText
+  const value = event.target.value
   event.target.parentNode.setAttribute('data-value', value)
 }
 

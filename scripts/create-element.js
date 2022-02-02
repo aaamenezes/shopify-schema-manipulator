@@ -23,9 +23,9 @@ function createInput(value) {
   return $input
 }
 
-export default function createElement(label, key, value, $parent) {
-  const $itemWrapper = createItemWrapper(key, value)
-  const $label = createLabel(label, key, value)
+export default function createElement(label, value, $parent) {
+  const $itemWrapper = createItemWrapper(label, value)
+  const $label = createLabel(label)
   const $input = createInput(value)
 
   $itemWrapper.appendChild($label)
