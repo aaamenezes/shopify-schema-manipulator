@@ -32,26 +32,13 @@ export function generateJSON($allFields) {
 }
 
 function generateJSONList($fields) {
-  // tem que fazer um for antes
   const JSONList = {}
 
   $fields.forEach($field => {
     const { key, value } = $field.dataset
+    if (value === '') return
     JSONList[key] = value
   })
 
   return JSONList
-
-  // createTitle(`Section ${key}`)
-
-  // list.forEach((item, index) => {
-  //   if (index > 0) createLine($schemaInterfaceSection)
-  //   const $div = document.createElement('div')
-    
-  //   Array.isArray(item)
-  //     ? console.log('é array') // não continuei isso aqui pq tem pouco uso
-  //     : generateSchema(item, $div)
-
-  //   $schemaInterfaceSection.appendChild($div)
-  // })
 }

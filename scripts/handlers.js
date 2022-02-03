@@ -7,6 +7,7 @@ import {
   $outputTextarea,
   $schemaInterfaceSection
 } from './dom.js'
+import { createAddButton } from './create-element.js'
 
 export function handleInputForm(event) {
   event.preventDefault()
@@ -43,6 +44,21 @@ export function handleOutputForm(event) {
 export function handleInput(event) {
   const value = event.target.value
   event.target.parentNode.setAttribute('data-value', value)
+}
+
+export function handleKeyDown(event) {
+  if (event.key === 'Escape' || event.keyCode === 27) {
+    const $parent = event.target.parentNode
+    const label = $parent.getAttribute('data-key')
+    const removeField = confirm(`Are you sure to remove ${label} field?`)
+
+    if (removeField) {
+      const $addButton = createAddButton()
+      $parent.replaceChild($addButton, event.target)
+      $parent.setAttribute('data-value', '')
+      $addButton.focus()
+    }
+  }
 }
 
 export function handleCopy() {

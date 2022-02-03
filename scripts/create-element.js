@@ -1,4 +1,4 @@
-import { handleInput } from './handlers.js'
+import { handleInput, handleKeyDown } from './handlers.js'
 
 function createItemWrapper(key, value) {
   const $itemWrapper = document.createElement('label')
@@ -17,23 +17,23 @@ function createLabel(label) {
 
 function createInput(value) {
   const $input = document.createElement('input')
-  $input.value = value
+  $input.setAttribute('type', 'text')
   $input.classList.add('element-item__input')
+  $input.value = value
   $input.oninput = handleInput
+  $input.onkeydown = handleKeyDown
   return $input
 }
 
-function createAddButton() {
+export function createAddButton() {
   const $button = document.createElement('button')
   $button.classList.add('element-item__button', 'btn', 'btn-add-field')
   $button.setAttribute('type', 'button')
-  $button.innerText = 'Add +'
+  $button.innerText = 'ADD FIELD +'
 
   $button.onclick = event => {
     const $itemWrapper = event.target.parentNode
     const $input = createInput('')
-    $input.classList.add('element-item__input')
-    $input.oninput = handleInput
     $itemWrapper.replaceChild($input, event.target)
   }
   return $button

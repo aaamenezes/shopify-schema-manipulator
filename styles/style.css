@@ -67,6 +67,7 @@
 
 .element-item__input {
   flex: 1;
+  padding: 0.5rem 0;
   outline: none;
   border: none;
   border-bottom: 2px dashed var(--light-gray);
