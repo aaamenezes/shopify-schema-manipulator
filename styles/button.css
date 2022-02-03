@@ -52,6 +52,27 @@
   background-color: var(--white);
 }
 
+.btn.btn-add-field {
+  padding: 0.5rem 4rem;
+  margin: 0;
+  border: 1px solid var(--yellow);
+  color: var(--black);
+  background-color: var(--yellow);
+}
+
+.btn.btn-add-field:focus {
+  border: 1px solid var(--orange);
+  color: var(--white);
+  background-color: var(--orange);
+  outline: none;
+}
+
+.btn.btn-add-field:hover {
+  border: 1px solid var(--red);
+  color: var(--white);
+  background-color: var(--red);
+}
+
 /* */
 
 .btn-wrapper {

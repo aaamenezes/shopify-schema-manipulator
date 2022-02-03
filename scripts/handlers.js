@@ -1,4 +1,4 @@
-import { generateSchema } from './generate-schema.js'
+import { createSectionNameSchema, generateSchema } from './generate-schema.js'
 import { clearSchemaInterface } from './utils.js'
 import { generateJSON } from './generate-json.js'
 import {
@@ -22,6 +22,12 @@ export function handleInputForm(event) {
     const inputObj = JSON.parse(inputJSON)
     clearSchemaInterface()
     generateSchema(inputObj, $schemaInterfaceSection)
+
+    const $sectionName = document.querySelector(
+      '.schema-interface__section > label[data-key="name"]'
+    )
+
+    if (!$sectionName) createSectionNameSchema()
   } catch(error) {
     alert('Os dados inseridos não são um JSON válido\n\n' + error)
     return

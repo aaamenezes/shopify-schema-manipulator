@@ -11,7 +11,7 @@ export function generateSchema(inputObj, $parent) {
     typeof value === 'string'
       ? createElement(key, value, $parent)
       : generateSchemaList(key, value, $parent) // O valor é array (ou objeto)
- })
+  })
 }
 
 function generateSchemaList(key, list, $parent) {
@@ -36,4 +36,11 @@ function generateSchemaList(key, list, $parent) {
 
     $parent.appendChild($div)
   })
+}
+
+export function createSectionNameSchema() {
+  const $previousSibling = document.querySelector(
+    '.schema-interface__label.schema-interface__label-section'
+  )
+  createElement('name', '', null, $previousSibling)
 }

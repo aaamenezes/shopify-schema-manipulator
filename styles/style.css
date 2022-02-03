@@ -57,6 +57,7 @@
 
 .element-item {
   display: flex;
+  align-items: center;
   margin-top: 2rem;
 }
 

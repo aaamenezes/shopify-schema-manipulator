@@ -10,6 +10,9 @@ export function generateJSON($allFields) {
     const fieldHasVerified = $field.hasAttribute('data-verified')
     if (fieldHasVerified) return
 
+    const isValueEmpty = $field.getAttribute('data-value') === ''
+    if (isValueEmpty) return
+
     const $superKeyParent = $field.closest('[data-super-key]')
 
     if ($superKeyParent) {

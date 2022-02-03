@@ -23,12 +23,39 @@ function createInput(value) {
   return $input
 }
 
-export default function createElement(label, value, $parent) {
+function createAddButton() {
+  const $button = document.createElement('button')
+  $button.classList.add('element-item__button', 'btn', 'btn-add-field')
+  $button.setAttribute('type', 'button')
+  $button.innerText = 'Add +'
+
+  $button.onclick = event => {
+    const $itemWrapper = event.target.parentNode
+    const $input = createInput('')
+    $input.classList.add('element-item__input')
+    $input.oninput = handleInput
+    $itemWrapper.replaceChild($input, event.target)
+  }
+  return $button
+}
+
+export default function createElement(label, value, $parent, $previousSibling) {
   const $itemWrapper = createItemWrapper(label, value)
   const $label = createLabel(label)
-  const $input = createInput(value)
+  const $inputOrButton = value ? createInput(value) : createAddButton()
 
   $itemWrapper.appendChild($label)
-  $itemWrapper.appendChild($input)
-  $parent.appendChild($itemWrapper)
+  $itemWrapper.appendChild($inputOrButton)
+
+  if ($parent) {
+    $parent.appendChild($itemWrapper)
+    return
+  }
+
+  if ($previousSibling) {
+    $previousSibling.insertAdjacentElement('afterend', $itemWrapper)
+    return
+  }
+
+  return $itemWrapper
 }
