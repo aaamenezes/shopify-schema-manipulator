@@ -1,6 +1,5 @@
-import createElement from './create-element.js'
+import createElement, { createRemoveBlockButton } from './create-element.js'
 import { $schemaInterfaceBlocks } from './dom.js'
-import { handleRemoveBlock } from './handlers.js'
 import { createLine, createTitle } from './utils.js'
 
 export function generateSchema(inputObj, $parent) {
@@ -22,29 +21,21 @@ function generateSchemaList(key, list, $parent) {
     createTitle(`Section ${key}`, $parent)
   }
 
-  list.forEach((item, index) => {
-    if (index > 0) {
-      const lineStyle = isBlocks ? 'heavy' : 'light'
-      createLine(lineStyle, $parent)
-    }
-
+  list.forEach(item => {
     const $div = document.createElement('div')
     $div.classList.add('schema-interface__super-key')
     $div.setAttribute('data-super-key', key)
 
-    const $closeButton = document.createElement('button')
-    $closeButton.classList.add('btn', 'btn-remove-block')
-    $closeButton.setAttribute('type', 'button')
-    $closeButton.innerHTML = '&times;'
-    $closeButton.onclick = handleRemoveBlock
-
-    $div.appendChild($closeButton)
+    const $removeBlockButton = createRemoveBlockButton()
+    $div.appendChild($removeBlockButton)
     
     Array.isArray(item)
       ? console.log('é array') // não continuei isso aqui pq tem pouco uso
       : generateSchema(item, $div)
 
     $parent.appendChild($div)
+    const lineStyle = isBlocks ? 'heavy' : 'light'
+    createLine(lineStyle, $parent)
   })
 }
 

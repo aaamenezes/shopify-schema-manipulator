@@ -58,14 +58,14 @@
 
 /* ADD AND REMOVE BUTTON */
 
-.btn.btn-add-field,
+.btn.btn-add,
 .btn.btn-remove-block {
   border: 1px solid var(--yellow);
   color: var(--black);
   background-color: var(--yellow);
 }
 
-.btn.btn-add-field:focus,
+.btn.btn-add:focus,
 .btn.btn-remove-block:focus {
   border: 1px solid var(--orange);
   color: var(--white);
@@ -73,7 +73,7 @@
   outline: none;
 }
 
-.btn.btn-add-field:hover,
+.btn.btn-add:hover,
 .btn.btn-remove-block:hover {
   border: 1px solid var(--red);
   color: var(--white);
@@ -82,7 +82,7 @@
 
 /* ADD BUTTON */
 
-.btn.btn-add-field {
+.btn.btn-add {
   padding: 0.5rem 4rem;
   margin: 0;
 }

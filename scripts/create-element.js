@@ -1,4 +1,5 @@
-import { handleInput, handleRemoveField } from './handlers.js'
+import { $schemaInterfaceBlocks } from './dom.js'
+import { handleAddBlock, handleInput, handleRemoveBlock, handleRemoveField } from './handlers.js'
 
 function createItemWrapper(key, value) {
   const $itemWrapper = document.createElement('label')
@@ -25,9 +26,9 @@ function createInput(value) {
   return $input
 }
 
-export function createAddButton() {
+export function createFieldAddButton() {
   const $button = document.createElement('button')
-  $button.classList.add('element-item__button', 'btn', 'btn-add-field')
+  $button.classList.add('btn', 'btn-add')
   $button.setAttribute('type', 'button')
   $button.innerText = 'ADD FIELD +'
 
@@ -39,10 +40,30 @@ export function createAddButton() {
   return $button
 }
 
+export function createAddBlockButton() {
+  const $button = document.createElement('button')
+  $button.classList.add('btn', 'btn-add')
+  $button.setAttribute('type', 'button')
+  $button.onclick = handleAddBlock
+  $button.innerText = 'ADD BLOCK +'
+
+  $schemaInterfaceBlocks.insertAdjacentElement('beforeend', $button)
+}
+
+export function createRemoveBlockButton() {
+  const $closeButton = document.createElement('button')
+  $closeButton.classList.add('btn', 'btn-remove-block')
+  $closeButton.setAttribute('type', 'button')
+  $closeButton.innerHTML = '&times;'
+  $closeButton.onclick = handleRemoveBlock
+
+  return $closeButton
+}
+
 export default function createElement(label, value, $parent, $previousSibling) {
   const $itemWrapper = createItemWrapper(label, value)
   const $label = createLabel(label)
-  const $inputOrButton = value ? createInput(value) : createAddButton()
+  const $inputOrButton = value ? createInput(value) : createFieldAddButton()
 
   $itemWrapper.appendChild($label)
   $itemWrapper.appendChild($inputOrButton)

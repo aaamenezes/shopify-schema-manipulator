@@ -49,6 +49,10 @@
   border-top: 1px solid var(--red);
 }
 
+.schema-interface__line:last-of-type {
+  margin: 2rem auto;
+}
+
 .schema-interface__line.light {
   width: 30%;
   border-color: var(--light-gray);

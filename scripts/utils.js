@@ -19,8 +19,19 @@ export function createTitle(label, $parent){
   $parent.appendChild($h3)
 }
 
-export function createLine(style, $parent) {
+export function createLine(style, $parent, $previousSibling) {
   const $line = document.createElement('hr')
   $line.classList.add('schema-interface__line', style) // heavy or light
-  $parent.appendChild($line)
+
+  if ($parent) {
+    $parent.appendChild($line)
+    return
+  }
+  
+  if ($previousSibling) {
+    $previousSibling.insertAdjacentElement('afterend', $line)
+    return
+  }
+
+  return $line
 }

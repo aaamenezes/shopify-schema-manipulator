@@ -1,13 +1,18 @@
 import { createSectionNameSchema, generateSchema } from './generate-schema.js'
-import { clearSchemaInterface } from './utils.js'
+import { clearSchemaInterface, createLine } from './utils.js'
 import { generateJSON } from './generate-json.js'
+import createElement, {
+  createAddBlockButton,
+  createFieldAddButton,
+  createRemoveBlockButton
+} from './create-element.js'
 import {
   $copySuccessMessage,
   $inputTextarea,
   $outputTextarea,
+  $schemaInterfaceBlocks,
   $schemaInterfaceSection
 } from './dom.js'
-import { createAddButton } from './create-element.js'
 
 export function handleInputForm(event) {
   event.preventDefault()
@@ -29,6 +34,7 @@ export function handleInputForm(event) {
     )
 
     if (!$sectionName) createSectionNameSchema()
+    createAddBlockButton()
   } catch(error) {
     alert('Os dados inseridos não são um JSON válido\n\n' + error)
     return
@@ -55,7 +61,7 @@ export function handleRemoveField(event) {
     )
 
     if (removeField) {
-      const $addButton = createAddButton()
+      const $addButton = createFieldAddButton()
       $parent.replaceChild($addButton, event.target)
       $parent.setAttribute('data-value', '')
       $addButton.focus()
@@ -80,21 +86,32 @@ export function handleReset() {
   $outputTextarea.value = ''
 }
 
+export function handleAddBlock() {
+  const $div = document.createElement('div')
+  $div.classList.add('schema-interface__super-key')
+  $div.setAttribute('data-super-key', 'blocks')
+  const $removeBlockButton = createRemoveBlockButton()
+  $div.appendChild($removeBlockButton)
+  createElement('type', '', $div)
+  createElement('id', '', $div)
+  createElement('label', '', $div)
+
+  const $lastChild = $schemaInterfaceBlocks.lastElementChild
+  const $sibling = $lastChild.previousElementSibling
+  
+  $sibling.insertAdjacentElement('afterend', $div)
+  const $line = createLine('heavy', null, $div)
+
+  $div.querySelector('.btn.btn-add').focus()
+}
+
 export function handleRemoveBlock(event) {
   const removeBlock = confirm('Are you sure you want to remove this block?')
 
   if (removeBlock) {
     const $parent = event.target.parentNode
-
-    const previousLine = $parent.previousElementSibling
-    const nextLine = $parent.nextElementSibling
-
-    if (previousLine && previousLine.tagName === 'HR') {
-      previousLine.remove()
-    } else if (nextLine && nextLine.tagName === 'HR') {
-      nextLine.remove()
-    }
-
+    const $line = $parent.nextElementSibling
+    $line.remove()
     $parent.remove()
   }
 }
