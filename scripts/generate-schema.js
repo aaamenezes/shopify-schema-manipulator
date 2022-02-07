@@ -1,5 +1,6 @@
 import createElement from './create-element.js'
 import { $schemaInterfaceBlocks } from './dom.js'
+import { handleRemoveBlock } from './handlers.js'
 import { createLine, createTitle } from './utils.js'
 
 export function generateSchema(inputObj, $parent) {
@@ -28,7 +29,16 @@ function generateSchemaList(key, list, $parent) {
     }
 
     const $div = document.createElement('div')
+    $div.classList.add('schema-interface__super-key')
     $div.setAttribute('data-super-key', key)
+
+    const $closeButton = document.createElement('button')
+    $closeButton.classList.add('btn', 'btn-remove-block')
+    $closeButton.setAttribute('type', 'button')
+    $closeButton.innerHTML = '&times;'
+    $closeButton.onclick = handleRemoveBlock
+
+    $div.appendChild($closeButton)
     
     Array.isArray(item)
       ? console.log('é array') // não continuei isso aqui pq tem pouco uso

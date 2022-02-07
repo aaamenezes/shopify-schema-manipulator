@@ -6,6 +6,8 @@
   cursor: pointer;
 }
 
+/* PRIMARY */
+
 .btn.btn-primary {
   border: 1px solid var(--red);
   color: var(--white);
@@ -27,6 +29,8 @@
   color: var(--white);
   background-color: var(--black);
 }
+
+ /* SECONDARY */
 
 .btn.btn-secondary {
   border: 1px solid var(--red);
@@ -52,28 +56,47 @@
   background-color: var(--white);
 }
 
-.btn.btn-add-field {
-  padding: 0.5rem 4rem;
-  margin: 0;
+/* ADD AND REMOVE BUTTON */
+
+.btn.btn-add-field,
+.btn.btn-remove-block {
   border: 1px solid var(--yellow);
   color: var(--black);
   background-color: var(--yellow);
 }
 
-.btn.btn-add-field:focus {
+.btn.btn-add-field:focus,
+.btn.btn-remove-block:focus {
   border: 1px solid var(--orange);
   color: var(--white);
   background-color: var(--orange);
   outline: none;
 }
 
-.btn.btn-add-field:hover {
+.btn.btn-add-field:hover,
+.btn.btn-remove-block:hover {
   border: 1px solid var(--red);
   color: var(--white);
   background-color: var(--red);
 }
 
-/* */
+/* ADD BUTTON */
+
+.btn.btn-add-field {
+  padding: 0.5rem 4rem;
+  margin: 0;
+}
+
+/* REMOVE BUTTON */
+
+.btn.btn-remove-block {
+  position: absolute;
+  top: 0.5rem;
+  right: 0;
+  padding: 0.2rem 0.5rem;
+}
+
+/* WRAPPER */
 
 .btn-wrapper {
   display: flex;

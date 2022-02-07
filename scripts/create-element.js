@@ -1,4 +1,4 @@
-import { handleInput, handleKeyDown } from './handlers.js'
+import { handleInput, handleRemoveField } from './handlers.js'
 
 function createItemWrapper(key, value) {
   const $itemWrapper = document.createElement('label')
@@ -21,7 +21,7 @@ function createInput(value) {
   $input.classList.add('element-item__input')
   $input.value = value
   $input.oninput = handleInput
-  $input.onkeydown = handleKeyDown
+  $input.onkeydown = handleRemoveField
   return $input
 }
 

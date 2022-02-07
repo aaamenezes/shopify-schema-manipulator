@@ -14,7 +14,7 @@
 <body>
 
   <header class="section">
-    <a href="https://shopify.dev/themes/architecture/sections/section-schema#settings" target="_blank">Schema</a>
+    <a href="https://shopify.dev/themes/architecture/sections/section-schema#section-title" target="_blank">Schema</a>
   </header>
 
   <header class="section">
@@ -26,9 +26,11 @@
 
       <textarea class="textarea input-textarea" name="input-textarea" placeholder="Input field">
         {
-          "tag":"section",
-          "class":"collection-section",
-          "limit":"4",
+          "name": "Collection",
+          "tag": "section",
+          "class": "collection-section",
+          "limit": "4",
+          "max_blocks": "12",
           "settings": [
             {
               "type":"text",

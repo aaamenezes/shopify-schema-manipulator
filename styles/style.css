@@ -18,6 +18,10 @@
   }
 }
 
+.schema-interface__super-key {
+  position: relative;
+}
+
 .schema-interface__item {
   display: flex;
   flex-direction: column;

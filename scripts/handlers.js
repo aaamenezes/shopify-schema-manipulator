@@ -46,11 +46,13 @@ export function handleInput(event) {
   event.target.parentNode.setAttribute('data-value', value)
 }
 
-export function handleKeyDown(event) {
+export function handleRemoveField(event) {
   if (event.key === 'Escape' || event.keyCode === 27) {
     const $parent = event.target.parentNode
     const label = $parent.getAttribute('data-key')
-    const removeField = confirm(`Are you sure to remove ${label} field?`)
+    const removeField = confirm(
+      `Are you sure you want to remove the ${label} field?`
+    )
 
     if (removeField) {
       const $addButton = createAddButton()
@@ -76,4 +78,23 @@ export function handleReset() {
   $inputTextarea.value = '{}'
   clearSchemaInterface()
   $outputTextarea.value = ''
+}
+
+export function handleRemoveBlock(event) {
+  const removeBlock = confirm('Are you sure you want to remove this block?')
+
+  if (removeBlock) {
+    const $parent = event.target.parentNode
+
+    const previousLine = $parent.previousElementSibling
+    const nextLine = $parent.nextElementSibling
+
+    if (previousLine && previousLine.tagName === 'HR') {
+      previousLine.remove()
+    } else if (nextLine && nextLine.tagName === 'HR') {
+      nextLine.remove()
+    }
+
+    $parent.remove()
+  }
 }
