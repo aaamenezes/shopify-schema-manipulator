@@ -60,24 +60,24 @@
 
 .btn.btn-add,
 .btn.btn-remove-block {
-  border: 1px solid var(--yellow);
-  color: var(--black);
-  background-color: var(--yellow);
+  border: 1px solid var(--light-gray);
+  color: var(--gray);
+  background-color: transparent;
 }
 
 .btn.btn-add:focus,
 .btn.btn-remove-block:focus {
-  border: 1px solid var(--orange);
+  border: 1px solid var(--yellow);
   color: var(--white);
-  background-color: var(--orange);
+  background-color: var(--yellow);
   outline: none;
 }
 
 .btn.btn-add:hover,
 .btn.btn-remove-block:hover {
-  border: 1px solid var(--red);
+  border: 1px solid var(--orange);
   color: var(--white);
-  background-color: var(--red);
+  background-color: var(--orange);
 }
 
 /* ADD BUTTON */
