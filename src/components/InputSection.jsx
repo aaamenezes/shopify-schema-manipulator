@@ -6,6 +6,7 @@ export default function InputSection({
   setInputJson,
   clearSchemaInterface,
   setSchemaInterfaceSection,
+  setSchemaInterfaceBlocks,
   generateOutputJson,
   generateSchema
 }) {
@@ -21,19 +22,12 @@ export default function InputSection({
       const inputObj = JSON.parse(inputJson)
       clearSchemaInterface()
       setSchemaInterfaceSection(Object.entries(inputObj))
+      setSchemaInterfaceBlocks(inputObj.blocks)
       generateOutputJson()
-      return
-
-      const $sectionName = document.querySelector(
-        '.schema-interface__section > label[data-key="name"]'
-      )
-
-      if (!$sectionName) createSectionNameSchema()
-      createAddBlockButton()
       setJsonIsValid(true)
     } catch (error) {
       setJsonIsValid(false)
-      alert(`Os dados inseridos não são um JSON válido\n\n${ error }`)
+      // alert(`Os dados inseridos não são um JSON válido\n\n${ error }`)
     }
   }
 

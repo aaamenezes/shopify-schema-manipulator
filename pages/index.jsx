@@ -47,6 +47,7 @@ export default function Polaris() {
           setInputJson={setInputJson}
           clearSchemaInterface={clearSchemaInterface}
           setSchemaInterfaceSection={setSchemaInterfaceSection}
+          setSchemaInterfaceBlocks={setSchemaInterfaceBlocks}
           generateOutputJson={generateOutputJson}
         />
         <OutputSection

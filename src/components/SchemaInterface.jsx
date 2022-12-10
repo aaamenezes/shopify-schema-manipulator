@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react'
 import { Card, Grid, Tabs } from '@shopify/polaris'
 import SectionSettings from './SectionSettings'
 import SingleProperty from './SingleProperty'
+import BlockSettings from './BlockSettings'
 
 export default function SchemaInterface({
   setOutputJson,
@@ -25,14 +26,46 @@ export default function SchemaInterface({
       accessibilityLabel: 'Section settings fields',
       panelID: 'section',
       content: 'Section',
-      panelContent: schemaInterfaceSection
+      panelContent: schemaInterfaceSection.map(([ key, value ]) => {
+        if (key === 'blocks') {
+          return (
+            null
+            // <BlocksInterface />
+          )
+        }
+
+        if (key === 'settings') {
+          return (
+            <SectionSettings
+              value={value}
+              schemaInterfaceSection={schemaInterfaceSection}
+              setSchemaInterfaceSection={setSchemaInterfaceSection}
+            />
+          )
+        }
+
+        return (
+          <SingleProperty
+            chave={key}
+            value={value}
+            schemaInterfaceSection={schemaInterfaceSection}
+            setSchemaInterfaceSection={setSchemaInterfaceSection}
+          />
+        )
+      })
     },
     {
       id: 'blocks',
       accessibilityLabel: 'Blocks settings fields',
       panelID: 'blocks',
       content: 'Blocks',
-      panelContent: schemaInterfaceBlocks
+      panelContent: schemaInterfaceBlocks.map(blockInfos => (
+        <BlockSettings
+          blockInfos={blockInfos}
+          schemaInterfaceBlock={schemaInterfaceBlocks}
+          setSchemaInterfaceBlock={setSchemaInterfaceBlocks}
+        />
+      ))
     },
     {
       id: 'presets',
@@ -60,33 +93,7 @@ export default function SchemaInterface({
       >
         <Card.Section>
           <Grid gap='5'>
-            {tabs[selectedTabIndex].panelContent.map(([ key, value ]) => {
-              if (key === 'blocks') {
-                return (
-                  null
-                  // <BlocksInterface />
-                )
-              }
-
-              if (key === 'settings') {
-                return (
-                  <SectionSettings
-                    value={value}
-                    schemaInterfaceSection={schemaInterfaceSection}
-                    setSchemaInterfaceSection={setSchemaInterfaceSection}
-                  />
-                )
-              }
-
-              return (
-                <SingleProperty
-                  chave={key}
-                  value={value}
-                  schemaInterfaceSection={schemaInterfaceSection}
-                  setSchemaInterfaceSection={setSchemaInterfaceSection}
-                />
-              )
-            })}
+            {tabs[selectedTabIndex].panelContent}
           </Grid>
         </Card.Section>
       </Tabs>
