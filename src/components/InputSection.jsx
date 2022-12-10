@@ -5,7 +5,8 @@ export default function InputSection({
   inputJson,
   setInputJson,
   clearSchemaInterface,
-  setSchemaInterfaceSection,
+  setSchemaInterfaceSectionInfos,
+  setSchemaInterfaceSectionSettings,
   setSchemaInterfaceBlocks,
   setSchemaInterfacePresets,
   generateOutputJson,
@@ -22,7 +23,16 @@ export default function InputSection({
     try {
       const inputObj = JSON.parse(inputJson)
       clearSchemaInterface()
-      setSchemaInterfaceSection(Object.entries(inputObj))
+      setSchemaInterfaceSectionInfos(
+        Object.entries(inputObj).filter(
+          property => (
+            property[0] !== 'settings'
+            && property[0] !== 'blocks'
+            && property[0] !== 'presets'
+          )
+        )
+      )
+      setSchemaInterfaceSectionSettings(inputObj.settings)
       setSchemaInterfaceBlocks(inputObj.blocks)
       setSchemaInterfacePresets(inputObj.presets)
       generateOutputJson()

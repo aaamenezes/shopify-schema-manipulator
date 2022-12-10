@@ -4,8 +4,8 @@ import SingleProperty from './SingleProperty'
 
 export default function Collapse({
   field,
-  schemaInterfaceSection,
-  setSchemaInterfaceSection
+  schemaInterfaceSectionInfos,
+  setSchemaInterfaceSectionInfos
 }) {
   const [ collapseIsOpen, setCollapseIsOpen ] = useState(false)
 
@@ -30,8 +30,8 @@ export default function Collapse({
                 <SingleProperty
                   chave={property[0]}
                   value={property[1]}
-                  schemaInterfaceSection={schemaInterfaceSection}
-                  setSchemaInterfaceSection={setSchemaInterfaceSection}
+                  schemaInterfaceSectionInfos={schemaInterfaceSectionInfos}
+                  setSchemaInterfaceSectionInfos={setSchemaInterfaceSectionInfos}
                 />
               </Grid.Cell>
             ))}

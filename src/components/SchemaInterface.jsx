@@ -7,8 +7,10 @@ import PresetsSettings from './PresetsSettings'
 
 export default function SchemaInterface({
   setOutputJson,
-  schemaInterfaceSection,
-  setSchemaInterfaceSection,
+  schemaInterfaceSectionInfos,
+  setSchemaInterfaceSectionInfos,
+  schemaInterfaceSectionSettings,
+  setSchemaInterfaceSectionSettings,
   schemaInterfaceBlocks,
   setSchemaInterfaceBlocks,
   schemaInterfacePresets,
@@ -25,37 +27,30 @@ export default function SchemaInterface({
 
   const tabs = [
     {
-      id: 'section',
-      accessibilityLabel: 'Section settings fields',
-      panelID: 'section',
-      content: 'Section',
-      panelContent: schemaInterfaceSection.map(([ key, value ]) => {
-        if (key === 'blocks') {
-          return (
-            null
-            // <BlocksInterface />
-          )
-        }
-
-        if (key === 'settings') {
-          return (
-            <SectionSettings
-              value={value}
-              schemaInterfaceSection={schemaInterfaceSection}
-              setSchemaInterfaceSection={setSchemaInterfaceSection}
-            />
-          )
-        }
-
-        return (
-          <SingleProperty
-            chave={key}
-            value={value}
-            schemaInterfaceSection={schemaInterfaceSection}
-            setSchemaInterfaceSection={setSchemaInterfaceSection}
-          />
-        )
-      })
+      id: 'section-infos',
+      accessibilityLabel: 'Section infos',
+      panelID: 'section-infos-content',
+      content: 'Section infos',
+      panelContent: schemaInterfaceSectionInfos.map(([ key, value ]) => (
+        <SingleProperty
+          chave={key}
+          value={value}
+          schemaInterfaceSectionInfos={schemaInterfaceSectionInfos}
+          setSchemaInterfaceSectionInfos={setSchemaInterfaceSectionInfos}
+        />
+      ))
+    },
+    {
+      id: 'section-settings',
+      accessibilityLabel: 'Section settings',
+      panelID: 'section-settings-content',
+      content: 'Section settings',
+      panelContent: (
+        <SectionSettings
+          schemaInterfaceSectionSettings={schemaInterfaceSectionSettings}
+          setSchemaInterfaceSectionSettings={setSchemaInterfaceSectionSettings}
+        />
+      )
     },
     {
       id: 'blocks',

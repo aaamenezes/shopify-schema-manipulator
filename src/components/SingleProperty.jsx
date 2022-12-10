@@ -4,11 +4,11 @@ import { Button, Grid, Stack, Text, TextField } from '@shopify/polaris'
 export default function SingleProperty({
   chave,
   value,
-  schemaInterfaceSection,
-  setSchemaInterfaceSection
+  schemaInterfaceSectionInfos,
+  setSchemaInterfaceSectionInfos
 }) {
   function handleRemoveField() {
-    const filteredFields = schemaInterfaceSection.filter(field => {
+    const filteredFields = schemaInterfaceSectionInfos.filter(field => {
       const [ key, _value ] = field
 
       if (key === 'settings') return true
@@ -18,7 +18,7 @@ export default function SingleProperty({
       return key !== chave && _value !== value
     })
 
-    setSchemaInterfaceSection(filteredFields)
+    setSchemaInterfaceSectionInfos(filteredFields)
   }
 
   return (

@@ -11,17 +11,18 @@ import OutputSection from '../src/components/OutputSection'
 export default function Polaris() {
   const [ inputJson, setInputJson ] = useState(JSON.stringify(initialJson))
   const [ outputJson, setOutputJson ] = useState('')
-  const [ schemaInterfaceSection, setSchemaInterfaceSection ] = useState([])
+  const [ schemaInterfaceSectionInfos, setSchemaInterfaceSectionInfos ] = useState([])
+  const [ schemaInterfaceSectionSettings, setSchemaInterfaceSectionSettings ] = useState([])
   const [ schemaInterfaceBlocks, setSchemaInterfaceBlocks ] = useState([])
   const [ schemaInterfacePresets, setSchemaInterfacePresets ] = useState([])
 
   function clearSchemaInterface() {
-    setSchemaInterfaceSection([])
+    setSchemaInterfaceSectionInfos([])
     setSchemaInterfaceBlocks([])
   }
 
   function generateOutputJson() {
-    setOutputJson(`${ [ ...schemaInterfaceSection, ...schemaInterfaceBlocks ] }`)
+    setOutputJson(`${ [ ...schemaInterfaceSectionInfos, ...schemaInterfaceBlocks ] }`)
   }
 
   return (
@@ -36,8 +37,10 @@ export default function Polaris() {
         <Header />
         <SchemaInterface
           setOutputJson={setOutputJson}
-          schemaInterfaceSection={schemaInterfaceSection}
-          setSchemaInterfaceSection={setSchemaInterfaceSection}
+          schemaInterfaceSectionInfos={schemaInterfaceSectionInfos}
+          setSchemaInterfaceSectionInfos={setSchemaInterfaceSectionInfos}
+          schemaInterfaceSectionSettings={schemaInterfaceSectionSettings}
+          setSchemaInterfaceSectionSettings={setSchemaInterfaceSectionSettings}
           schemaInterfaceBlocks={schemaInterfaceBlocks}
           setSchemaInterfaceBlocks={setSchemaInterfaceBlocks}
           schemaInterfacePresets={schemaInterfacePresets}
@@ -49,7 +52,8 @@ export default function Polaris() {
           inputJson={inputJson}
           setInputJson={setInputJson}
           clearSchemaInterface={clearSchemaInterface}
-          setSchemaInterfaceSection={setSchemaInterfaceSection}
+          setSchemaInterfaceSectionInfos={setSchemaInterfaceSectionInfos}
+          setSchemaInterfaceSectionSettings={setSchemaInterfaceSectionSettings}
           setSchemaInterfaceBlocks={setSchemaInterfaceBlocks}
           setSchemaInterfacePresets={setSchemaInterfacePresets}
           generateOutputJson={generateOutputJson}
