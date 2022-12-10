@@ -4,8 +4,8 @@ import Collapse from './Collapse'
 
 export default function BlockSettings({
   blockInfos,
-  schemaInterfaceBlocks,
-  setSchemaInterfaceBlocks
+  interfaceBlocks,
+  setInterfaceBlocks
 }) {
   return (
     <Grid.Cell columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
@@ -18,8 +18,8 @@ export default function BlockSettings({
         <Stack.Item>
           <Button
             plain
-            onClick={() => setSchemaInterfaceBlocks(
-              schemaInterfaceBlocks.filter(field => field[0] !== 'blocks')
+            onClick={() => setInterfaceBlocks(
+              interfaceBlocks.filter(field => field[0] !== 'blocks')
             )}
           >
             Delete
@@ -35,8 +35,8 @@ export default function BlockSettings({
             <Card.Section>
               <Collapse
                 field={field}
-                schemaInterfaceBlocks={schemaInterfaceBlocks}
-                setSchemaInterfaceBlocks={setSchemaInterfaceBlocks}
+                interfaceBlocks={interfaceBlocks}
+                setInterfaceBlocks={setInterfaceBlocks}
               />
             </Card.Section>
           ))}

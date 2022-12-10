@@ -4,26 +4,26 @@ import { Card, TextField } from '@shopify/polaris'
 export default function InputSection({
   inputJson,
   setInputJson,
-  clearSchemaInterface,
-  setSchemaInterfaceSectionInfos,
-  setSchemaInterfaceSectionSettings,
-  setSchemaInterfaceBlocks,
-  setSchemaInterfacePresets,
+  clearInterface,
+  setInterfaceSectionInfos,
+  setInterfaceSectionSettings,
+  setInterfaceBlocks,
+  setInterfacePresets,
   generateOutputJson,
   generateSchema
 }) {
   const [ jsonIsValid, setJsonIsValid ] = useState(true)
 
-  function generateSchemaInterface() {
+  function generateInterface() {
     if (inputJson === '' || inputJson === '{}') {
-      clearSchemaInterface()
+      clearInterface()
       return
     }
 
     try {
       const inputObj = JSON.parse(inputJson)
-      clearSchemaInterface()
-      setSchemaInterfaceSectionInfos(
+      clearInterface()
+      setInterfaceSectionInfos(
         Object.entries(inputObj).filter(
           property => (
             property[0] !== 'settings'
@@ -32,9 +32,9 @@ export default function InputSection({
           )
         )
       )
-      setSchemaInterfaceSectionSettings(inputObj.settings)
-      setSchemaInterfaceBlocks(inputObj.blocks)
-      setSchemaInterfacePresets(inputObj.presets)
+      setInterfaceSectionSettings(inputObj.settings)
+      setInterfaceBlocks(inputObj.blocks)
+      setInterfacePresets(inputObj.presets)
       generateOutputJson()
       setJsonIsValid(true)
     } catch (error) {
@@ -43,7 +43,7 @@ export default function InputSection({
     }
   }
 
-  useEffect(() => generateSchemaInterface(), [])
+  useEffect(() => generateInterface(), [])
 
   return (
     <Card
@@ -52,7 +52,7 @@ export default function InputSection({
         { content: 'CLEAR INPUT JSON', onAction: () => setInputJson('') }
       ]}
       primaryFooterAction={{
-        content: 'GENERATE SCHEMA INTERFACE', onAction: generateSchemaInterface
+        content: 'GENERATE SCHEMA INTERFACE', onAction: generateInterface
       }}
     >
       <Card.Section>

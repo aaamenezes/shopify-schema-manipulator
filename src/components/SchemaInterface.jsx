@@ -7,16 +7,16 @@ import PresetsSettings from './PresetsSettings'
 
 export default function SchemaInterface({
   setOutputJson,
-  schemaInterfaceSectionInfos,
-  setSchemaInterfaceSectionInfos,
-  schemaInterfaceSectionSettings,
-  setSchemaInterfaceSectionSettings,
-  schemaInterfaceBlocks,
-  setSchemaInterfaceBlocks,
-  schemaInterfacePresets,
-  setSchemaInterfacePresets,
+  interfaceSectionInfos,
+  setInterfaceSectionInfos,
+  interfaceSectionSettings,
+  setInterfaceSectionSettings,
+  interfaceBlocks,
+  setInterfaceBlocks,
+  interfacePresets,
+  setInterfacePresets,
   generateOutputJson,
-  clearSchemaInterface
+  clearInterface
 }) {
   const [ selectedTabIndex, setSelectedTabIndex ] = useState(0)
 
@@ -31,12 +31,12 @@ export default function SchemaInterface({
       accessibilityLabel: 'Section infos',
       panelID: 'section-infos-content',
       content: 'Section infos',
-      panelContent: schemaInterfaceSectionInfos.map(([ key, value ]) => (
+      panelContent: interfaceSectionInfos.map(([ key, value ]) => (
         <SingleProperty
           chave={key}
           value={value}
-          schemaInterfaceSectionInfos={schemaInterfaceSectionInfos}
-          setSchemaInterfaceSectionInfos={setSchemaInterfaceSectionInfos}
+          interfaceSectionInfos={interfaceSectionInfos}
+          setInterfaceSectionInfos={setInterfaceSectionInfos}
         />
       ))
     },
@@ -47,8 +47,8 @@ export default function SchemaInterface({
       content: 'Section settings',
       panelContent: (
         <SectionSettings
-          schemaInterfaceSectionSettings={schemaInterfaceSectionSettings}
-          setSchemaInterfaceSectionSettings={setSchemaInterfaceSectionSettings}
+          interfaceSectionSettings={interfaceSectionSettings}
+          setInterfaceSectionSettings={setInterfaceSectionSettings}
         />
       )
     },
@@ -57,11 +57,11 @@ export default function SchemaInterface({
       accessibilityLabel: 'Blocks settings fields',
       panelID: 'blocks',
       content: 'Blocks',
-      panelContent: schemaInterfaceBlocks.map(blockInfos => (
+      panelContent: interfaceBlocks.map(blockInfos => (
         <BlockSettings
           blockInfos={blockInfos}
-          schemaInterfaceBlock={schemaInterfaceBlocks}
-          setSchemaInterfaceBlock={setSchemaInterfaceBlocks}
+          interfaceBlocks={interfaceBlocks}
+          setInterfaceBlocks={setInterfaceBlocks}
         />
       ))
     },
@@ -70,11 +70,11 @@ export default function SchemaInterface({
       accessibilityLabel: 'Presets settings fields',
       panelID: 'presets',
       content: 'Presets',
-      panelContent: schemaInterfacePresets.map(presetsInfos => (
+      panelContent: interfacePresets.map(presetsInfos => (
         <PresetsSettings
           presetsInfos={presetsInfos}
-          schemaInterfacePresets={schemaInterfacePresets}
-          setSchemaInterfacePresets={setSchemaInterfacePresets}
+          interfacePresets={interfacePresets}
+          setInterfacePresets={setInterfacePresets}
         />
       ))
     }
@@ -83,7 +83,7 @@ export default function SchemaInterface({
   return (
     <Card
       secondaryFooterActions={[
-        { content: 'CLEAR SCHEMA INTERFACE', onAction: clearSchemaInterface }
+        { content: 'CLEAR SCHEMA INTERFACE', onAction: clearInterface }
       ]}
       primaryFooterAction={{
         content: 'GENERATE SCHEMA JSON', onAction: generateOutputJson

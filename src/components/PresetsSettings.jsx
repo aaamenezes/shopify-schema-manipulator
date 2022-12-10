@@ -4,8 +4,8 @@ import SingleProperty from './SingleProperty'
 
 export default function PresetsSettings({
   presetsInfos,
-  schemaInterfacePresets,
-  setSchemaInterfacePresets
+  interfacePresets,
+  setInterfacePresets
 }) {
   const [ chave, value ] = Object.entries(presetsInfos)[0]
   return (
@@ -19,8 +19,8 @@ export default function PresetsSettings({
         <Stack.Item>
           <Button
             plain
-            onClick={() => setSchemaInterfacePresets(
-              schemaInterfacePresets.filter(field => field[0] !== 'presets')
+            onClick={() => setInterfacePresets(
+              interfacePresets.filter(field => field[0] !== 'presets')
             )}
           >
             Delete

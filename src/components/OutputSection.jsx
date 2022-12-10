@@ -2,7 +2,6 @@ import React from 'react'
 import { Card, TextField } from '@shopify/polaris'
 
 export default function OutputSection({ outputJson }) {
-
   return (
     <Card
       title='Output JSON'

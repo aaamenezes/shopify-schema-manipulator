@@ -3,8 +3,8 @@ import { Box, Button, Card, Grid, Stack, Text } from '@shopify/polaris'
 import Collapse from './Collapse'
 
 export default function SectionSettings({
-  schemaInterfaceSectionSettings,
-  setSchemaInterfaceSectionSettings
+  interfaceSectionSettings,
+  setInterfaceSectionSettings
 }) {
   return (
     <Grid.Cell
@@ -19,8 +19,8 @@ export default function SectionSettings({
         <Stack.Item>
           <Button
             plain
-            onClick={() => setSchemaInterfaceSectionSettings(
-              schemaInterfaceSectionSettings.filter(
+            onClick={() => setInterfaceSectionSettings(
+              interfaceSectionSettings.filter(
                 field => field[0] !== 'settings'
               )
             )}
@@ -34,12 +34,12 @@ export default function SectionSettings({
         background='action-secondary-pressed'
       >
         <Card>
-          {schemaInterfaceSectionSettings.map(field => (
+          {interfaceSectionSettings.map(field => (
             <Card.Section>
               <Collapse
                 field={field}
-                schemaInterfaceSectionSettings={schemaInterfaceSectionSettings}
-                setSchemaInterfaceSectionSettings={setSchemaInterfaceSectionSettings}
+                interfaceSectionSettings={interfaceSectionSettings}
+                setInterfaceSectionSettings={setInterfaceSectionSettings}
               />
             </Card.Section>
           ))}
