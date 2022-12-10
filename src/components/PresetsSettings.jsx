@@ -1,4 +1,4 @@
-import { Box, Button, Card, Grid, Stack, Text } from '@shopify/polaris'
+import { Button, Card, Grid, Stack, Text } from '@shopify/polaris'
 import React from 'react'
 import SingleProperty from './SingleProperty'
 
@@ -27,19 +27,14 @@ export default function PresetsSettings({
           </Button>
         </Stack.Item>
       </Stack>
-      <Box
-        padding='5'
-        background='action-secondary-pressed'
-      >
-        <Card>
-          <Card.Section>
-            <SingleProperty
-              chave={chave}
-              value={value}
-            />
-          </Card.Section>
-        </Card>
-      </Box>
+      <Card>
+        <Card.Section>
+          <SingleProperty
+            chave={chave}
+            value={value}
+          />
+        </Card.Section>
+      </Card>
     </Grid.Cell>
   )
 }

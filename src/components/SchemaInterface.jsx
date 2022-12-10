@@ -3,7 +3,6 @@ import { Card, Grid, Tabs } from '@shopify/polaris'
 import SectionSettings from './SectionSettings'
 import SingleProperty from './SingleProperty'
 import BlockSettings from './BlockSettings'
-import PresetsSettings from './PresetsSettings'
 
 export default function SchemaInterface({
   setOutputJson,
@@ -70,13 +69,17 @@ export default function SchemaInterface({
       accessibilityLabel: 'Presets settings fields',
       panelID: 'presets',
       content: 'Presets',
-      panelContent: interfacePresets.map(presetsInfos => (
-        <PresetsSettings
-          presetsInfos={presetsInfos}
-          interfacePresets={interfacePresets}
-          setInterfacePresets={setInterfacePresets}
-        />
-      ))
+      panelContent: interfacePresets.map(presetsInfos => {
+        const data = Object.entries(presetsInfos)[0]
+        return (
+          <SingleProperty
+            chave={data[0]}
+            value={data[1]}
+            interfaceSectionInfos={interfaceSectionInfos}
+            setInterfaceSectionInfos={setInterfaceSectionInfos}
+          />
+        )
+      })
     }
   ]
 
