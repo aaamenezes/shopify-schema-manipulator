@@ -17,7 +17,7 @@ export default function BlockSettings({
         </Stack.Item>
         <Stack.Item>
           <Button
-            plain
+            destructive
             onClick={() => setInterfaceBlocks(
               interfaceBlocks.filter(field => field[0] !== 'blocks')
             )}
@@ -26,22 +26,17 @@ export default function BlockSettings({
           </Button>
         </Stack.Item>
       </Stack>
-      <Box
-        padding='5'
-        background='action-secondary-pressed'
-      >
-        <Card>
-          {blockInfos.settings.map(field => (
-            <Card.Section>
-              <Collapse
-                field={field}
-                interfaceBlocks={interfaceBlocks}
-                setInterfaceBlocks={setInterfaceBlocks}
-              />
-            </Card.Section>
-          ))}
-        </Card>
-      </Box>
+      <Card>
+        {blockInfos.settings.map(field => (
+          <Card.Section>
+            <Collapse
+              field={field}
+              interfaceBlocks={interfaceBlocks}
+              setInterfaceBlocks={setInterfaceBlocks}
+            />
+          </Card.Section>
+        ))}
+      </Card>
     </Grid.Cell>
   )
 }
