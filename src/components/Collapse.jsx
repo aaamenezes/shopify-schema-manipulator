@@ -10,28 +10,34 @@ export default function Collapse({
   const [ collapseIsOpen, setCollapseIsOpen ] = useState(false)
 
   return (
-    <>
-      <Button
-        ariaExpanded={collapseIsOpen}
-        ariaControls={field.id}
-        onClick={() => setCollapseIsOpen(!collapseIsOpen)}
-      >
-        {field.label}
-      </Button>
-      <Collapsible open={collapseIsOpen} id={field.id}>
-        <Grid gap='5'>
-          {Object.entries(field).map(property => (
-            <Grid.Cell columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
-              <SingleProperty
-                chave={property[0]}
-                value={property[1]}
-                schemaInterfaceSection={schemaInterfaceSection}
-                setSchemaInterfaceSection={setSchemaInterfaceSection}
-              />
-            </Grid.Cell>
-          ))}
-        </Grid>
-      </Collapsible>
-    </>
+    <Grid gap='5'>
+      <Grid.Cell columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
+        <Button
+          ariaExpanded={collapseIsOpen}
+          ariaControls={field.id}
+          onClick={() => setCollapseIsOpen(!collapseIsOpen)}
+        >
+          {field.label}
+        </Button>
+      </Grid.Cell>
+      <Grid.Cell columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
+        <Collapsible open={collapseIsOpen} id={field.id}>
+          <Grid gap='5'>
+            {Object.entries(field).map(property => (
+              <Grid.Cell
+                columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}
+              >
+                <SingleProperty
+                  chave={property[0]}
+                  value={property[1]}
+                  schemaInterfaceSection={schemaInterfaceSection}
+                  setSchemaInterfaceSection={setSchemaInterfaceSection}
+                />
+              </Grid.Cell>
+            ))}
+          </Grid>
+        </Collapsible>
+      </Grid.Cell>
+    </Grid>
   )
 }

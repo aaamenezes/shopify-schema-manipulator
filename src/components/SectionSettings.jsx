@@ -19,13 +19,10 @@ export default function SectionSettings({
         </Stack.Item>
         <Stack.Item>
           <Button
-            alignment='right'
-            onClick={() => setSchemaInterfaceSection(
-              schemaInterfaceSection.filter(
-                field => field[0] !== 'settings'
-              )
-            )}
             plain
+            onClick={() => setSchemaInterfaceSection(
+              schemaInterfaceSection.filter(field => field[0] !== 'settings')
+            )}
           >
             Delete
           </Button>

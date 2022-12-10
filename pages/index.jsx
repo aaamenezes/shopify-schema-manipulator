@@ -19,66 +19,6 @@ export default function Polaris() {
     setSchemaInterfaceBlocks([])
   }
 
-  /*
-  POLARIS:
-  <TextField label='Section title' disabled />
-
-  HTML:
-  <label
-    class="element-item"
-    data-key={`${key}`}
-    data-value={`${value}`}
-  >
-    <span class="element-item__label">
-      {label}:
-    </span>
-    (
-      <input
-        type="text"
-        class="element-item__input"
-        value={`${value}`}
-        onInput={handleInput}
-        onKeydown={handleRemoveField}
-      />
-      ||
-      <button
-        class="btn btn-add"
-        type="button"
-        onClick={event => {
-          const itemWrapper = event.target.parentNode
-          const $input = createInput('')
-          // <input type="text" class="element-item__input" onInput={handleInput} onKeydown={handleRemoveField}
-          $itemWrapper.replaceChild($input, event.target)
-        }}
-      >
-        ADD FIELD +
-      </button>
-    )
-
-  </label>
-  */
-
-  function createFieldWrapper(label, value, $parent, $previousSibling) {
-    const $itemWrapper = createItemWrapper(label, value)
-    const $label = createLabel(label)
-    const $inputOrButton = value ? createInput(value) : createFieldAddButton()
-
-    $itemWrapper.appendChild($label)
-    $itemWrapper.appendChild($inputOrButton)
-
-    if ($parent) {
-      $parent.appendChild($itemWrapper)
-      return
-    }
-
-    if ($previousSibling) {
-      $previousSibling.insertAdjacentElement('afterend', $itemWrapper)
-      return
-    }
-
-    return $itemWrapper
-  }
-
   function generateOutputJson() {
     setOutputJson(`${ [ ...schemaInterfaceSection, ...schemaInterfaceBlocks ] }`)
   }

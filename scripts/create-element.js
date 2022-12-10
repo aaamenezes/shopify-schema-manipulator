@@ -59,3 +59,26 @@ export function createRemoveBlockButton() {
 
   return $closeButton
 }
+
+/**/
+
+function createFieldWrapper(label, value, $parent, $previousSibling) {
+  const $itemWrapper = createItemWrapper(label, value)
+  const $label = createLabel(label)
+  const $inputOrButton = value ? createInput(value) : createFieldAddButton()
+
+  $itemWrapper.appendChild($label)
+  $itemWrapper.appendChild($inputOrButton)
+
+  if ($parent) {
+    $parent.appendChild($itemWrapper)
+    return
+  }
+
+  if ($previousSibling) {
+    $previousSibling.insertAdjacentElement('afterend', $itemWrapper)
+    return
+  }
+
+  return $itemWrapper
+}

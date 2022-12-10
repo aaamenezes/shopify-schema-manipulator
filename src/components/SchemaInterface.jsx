@@ -4,11 +4,13 @@ import SectionSettings from './SectionSettings'
 import SingleProperty from './SingleProperty'
 
 export default function SchemaInterface({
+  setOutputJson,
   schemaInterfaceSection,
   setSchemaInterfaceSection,
   schemaInterfaceBlocks,
-  clearSchemaInterface,
-  generateOutputJson
+  setSchemaInterfaceBlocks,
+  generateOutputJson,
+  clearSchemaInterface
 }) {
   const [ selectedTabIndex, setSelectedTabIndex ] = useState(0)
 
@@ -59,7 +61,13 @@ export default function SchemaInterface({
         <Card.Section>
           <Grid gap='5'>
             {tabs[selectedTabIndex].panelContent.map(([ key, value ]) => {
-              if (key === 'blocks') return null
+              if (key === 'blocks') {
+                return (
+                  null
+                  // <BlocksInterface />
+                )
+              }
+
               if (key === 'settings') {
                 return (
                   <SectionSettings
