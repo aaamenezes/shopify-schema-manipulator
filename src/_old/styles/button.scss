@@ -1,0 +1,116 @@
+.btn {
+  display: block;
+  padding: 1rem;
+  margin: 0 auto;
+  font-weight: bold;
+  cursor: pointer;
+  transition: border-color var(--transition),
+    outline var(--transition),
+    background-color var(--transition),
+    color var(--transition);
+}
+
+/* PRIMARY */
+
+.btn.btn-primary {
+  border: 1px solid var(--red);
+  color: var(--white);
+  background-color: var(--red);
+}
+
+.btn.btn-primary:hover {
+  border: 1px solid var(--medium-red);
+  background-color: var(--medium-red);
+}
+
+.btn.btn-primary:focus {
+  border: 1px solid var(--dark-red);
+  background-color: var(--dark-red);
+}
+
+.btn.btn-primary.btn-black {
+  border: 1px solid var(--black);
+  color: var(--white);
+  background-color: var(--black);
+}
+
+ /* SECONDARY */
+
+.btn.btn-secondary {
+  border: 1px solid var(--red);
+  color: var(--red);
+  background-color: var(--white);
+}
+
+.btn.btn-secondary:hover {
+  border: 1px solid var(--medium-red);
+  color: var(--white);
+  background-color: var(--medium-red);
+}
+
+.btn.btn-secondary:focus {
+  border: 1px solid var(--dark-red);
+  color: var(--white);
+  background-color: var(--dark-red);
+}
+
+.btn.btn-secondary.btn-black {
+  border: 1px solid var(--black);
+  color: var(--black);
+  background-color: var(--white);
+}
+
+/* ADD AND REMOVE BUTTON */
+
+.btn.btn-add,
+.btn.btn-remove-block {
+  border: 1px solid var(--light-gray);
+  color: var(--gray);
+  background-color: transparent;
+}
+
+.btn.btn-add:focus,
+.btn.btn-remove-block:focus {
+  border: 1px solid var(--yellow);
+  color: var(--white);
+  background-color: var(--yellow);
+  outline: none;
+}
+
+.btn.btn-add:hover,
+.btn.btn-remove-block:hover {
+  border: 1px solid var(--orange);
+  color: var(--white);
+  background-color: var(--orange);
+}
+
+/* ADD BUTTON */
+
+.btn.btn-add {
+  padding: 0.5rem 4rem;
+  margin: 0;
+}
+
+/* REMOVE BUTTON */
+
+.btn.btn-remove-block {
+  position: absolute;
+  top: 0.5rem;
+  right: 0;
+  padding: 0.2rem 0.5rem;
+}
+
+/* WRAPPER */
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-wrapper > .btn {
+  margin: 0;
+}
+
+.btn-wrapper > :not(:last-child) {
+  margin-right: 1rem;
+}

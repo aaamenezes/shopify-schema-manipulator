@@ -1,0 +1,44 @@
+* {
+  color: var(--black);
+  font-family: sans-serif;
+}
+
+html {
+  font-size: 16px;
+}
+
+input {
+  font-size: 1rem;
+}
+
+.section {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.title {
+  text-align: center;
+}
+
+.textarea {
+  width: 100%;
+  height: 4rem;
+  padding: 1rem;
+  border: 1px solid var(--yellow);
+  transition: border-color var(--transition), outline var(--transition);
+}
+
+.textarea:hover,
+.textarea:focus {
+  border: 1px solid var(--dark-red);
+  outline: none;
+}
+
+.hide {
+  display: none !important;
+}
+
+.no-events {
+  pointer-events: none;
+}

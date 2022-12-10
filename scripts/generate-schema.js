@@ -2,18 +2,6 @@ import createElement, { createRemoveBlockButton } from './create-element.js'
 import { $schemaInterfaceBlocks } from './dom.js'
 import { createLine, createTitle } from './utils.js'
 
-export function generateSchema(inputObj, $parent) {
-  Object.entries(inputObj).forEach(([ key, value ]) => {
-    if (key === 'blocks') {
-      $parent = $schemaInterfaceBlocks
-    }
-
-    typeof value === 'string'
-      ? createElement(key, value, $parent)
-      : generateSchemaList(key, value, $parent) // O valor é array (ou objeto)
-  })
-}
-
 function generateSchemaList(key, list, $parent) {
   const isBlocks = $parent.classList.contains('schema-interface__blocks')
 

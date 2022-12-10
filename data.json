@@ -1,0 +1,432 @@
+{
+  "name": "Banner slider new",
+  "tag": "section",
+  "class": "banner-slider-section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "segmentation_config",
+      "label": "Segmentation config",
+      "default": "show_for_everyone",
+      "options": [
+        {
+          "value": "show_for_everyone",
+          "label": "Show for everyone"
+        },
+        {
+          "value": "show_only_in_usa",
+          "label": "Show only in USA"
+        },
+        {
+          "value": "show_in_usa_cold_states",
+          "label": "Show in USA cold states"
+        },
+        {
+          "value": "show_in_usa_warm_states",
+          "label": "Show in USA warm states"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "slides_per_view_on_mobile",
+      "label": "Slides per view on mobile",
+      "default": "1",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "slides_per_view_on_tablet",
+      "label": "Slides per view on tablet",
+      "default": "1",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "slides_per_view_on_desktop",
+      "label": "Slides per view on desktop",
+      "default": "1",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "slider_height",
+      "label": "Slider height",
+      "default": "",
+      "options": [
+        {
+          "value": "",
+          "label": "Auto (the image height will set the slider height)"
+        },
+        {
+          "value": "60vh",
+          "label": "60% of device screen height"
+        },
+        {
+          "value": "80vh",
+          "label": "80% of device screen height"
+        },
+        {
+          "value": "100vh",
+          "label": "100% of device screen height"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "label": "Slider margin top",
+      "id": "margin_top",
+      "default": "",
+      "options": [
+        {
+          "value": "",
+          "label": "None"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "label": "Slider margin bottom",
+      "id": "margin_bottom",
+      "default": "",
+      "options": [
+        {
+          "value": "",
+          "label": "None"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "pagination_type",
+      "label": "Pagination",
+      "default": "disable",
+      "options": [
+        {
+          "value": "disable",
+          "label": "Disable"
+        },
+        {
+          "value": "dot",
+          "label": "Dots"
+        },
+        {
+          "value": "line",
+          "label": "Line"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "arrow_buttons_color",
+      "label": "Arrow buttons",
+      "default": "dark",
+      "options": [
+        {
+          "value": "disable",
+          "label": "Disable"
+        },
+        {
+          "value": "dark",
+          "label": "Black"
+        },
+        {
+          "value": "light",
+          "label": "White"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "mobile_image_url",
+          "label": "Mobile image"
+        },
+        {
+          "type": "text",
+          "id": "mobile_image_alt",
+          "label": "Mobile image alt"
+        },
+        {
+          "type": "image_picker",
+          "id": "desktop_image_url",
+          "label": "Desktop image"
+        },
+        {
+          "type": "text",
+          "id": "desktop_image_alt",
+          "label": "Desktop image alt"
+        },
+        {
+          "type": "url",
+          "id": "slide_url",
+          "label": "Slide URL"
+        },
+        {
+          "type": "select",
+          "id": "image_overlay_opacity",
+          "label": "Image overlay opacity",
+          "default": "opacity-none",
+          "options": [
+            {
+              "value": "opacity-none",
+              "label": "0% - None"
+            },
+            {
+              "value": "opacity-light",
+              "label": "20% - Light"
+            },
+            {
+              "value": "opacity-medium",
+              "label": "40% - Medium"
+            },
+            {
+              "value": "opacity-intense",
+              "label": "60% - Intense"
+            },
+            {
+              "value": "opacity-semi-opaque",
+              "label": "80% - Semi opaque"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "slide_title",
+          "label": "Slide title"
+        },
+        {
+          "type": "text",
+          "id": "slide_description",
+          "label": "Slide description"
+        },
+        {
+          "type": "text",
+          "id": "first_button_label",
+          "label": "First button label",
+          "info": "Leave the label blank to hide the button."
+        },
+        {
+          "type": "select",
+          "id": "first_button_action",
+          "label": "First button action ",
+          "info": "Select one option and configure it",
+          "options": [
+            {
+              "value": "redirect_to_url",
+              "label": "Redirect to URL"
+            },
+            {
+              "value": "copy_coupon",
+              "label": "Copy coupon"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "first_button_coupon_code",
+          "label": "First button coupon code",
+          "info": "Insert the coupon code (First button)"
+        },
+        {
+          "type": "url",
+          "id": "first_button_url",
+          "label": "First button URL"
+        },
+        {
+          "type": "select",
+          "id": "first_button_style",
+          "label": "First button style",
+          "default": "primary",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Normal"
+            },
+            {
+              "value": "outline",
+              "label": "Outline"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "second_button_label",
+          "label": "Second button label",
+          "info": "Leave the label blank to hide the button."
+        },
+        {
+          "type": "select",
+          "id": "second_button_action",
+          "label": "Second button action ",
+          "info": "Select one option and configure it",
+          "options": [
+            {
+              "value": "redirect_to_url",
+              "label": "Redirect to URL"
+            },
+            {
+              "value": "copy_coupon",
+              "label": "Copy coupon"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "second_button_coupon_code",
+          "label": "Second button coupon code",
+          "info": "Insert the coupon code (Second button)"
+        },
+        {
+          "type": "url",
+          "id": "second_button_url",
+          "label": "Second button URL"
+        },
+        {
+          "type": "select",
+          "id": "second_button_style",
+          "label": "Second button style",
+          "default": "primary",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Normal"
+            },
+            {
+              "value": "outline",
+              "label": "Outline"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "content_box_position",
+          "label": "Content box position",
+          "default": "bottom",
+          "options": [
+            {
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "middle",
+              "label": "Middle"
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "mobile_video_url",
+          "label": "Mobile video URL"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_video_placeholder",
+          "label": "Mobile video placeholder"
+        },
+        {
+          "type": "text",
+          "id": "desktop_video_url",
+          "label": "Desktop video URL"
+        },
+        {
+          "type": "image_picker",
+          "id": "desktop_video_placeholder",
+          "label": "Desktop video placeholder"
+        },
+        {
+          "type": "text",
+          "id": "video_alt",
+          "label": "Video alt text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner slider new"
+    }
+  ]
+}
