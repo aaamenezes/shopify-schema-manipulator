@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Card, Grid, Stack, Text } from '@shopify/polaris'
+import { Button, Card, Grid, Stack } from '@shopify/polaris'
 import Collapse from './Collapse'
 
 export default function SectionSettings({
@@ -7,31 +7,9 @@ export default function SectionSettings({
   setInterfaceSectionSettings
 }) {
   return (
-    <Grid.Cell
-      columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}
-    >
-      <Stack>
-        <Stack.Item fill>
-          <Text as='h2' variant='headingMd'>
-            Settings:
-          </Text>
-        </Stack.Item>
-        <Stack.Item>
-          <Button
-            plain
-            onClick={() => setInterfaceSectionSettings(
-              interfaceSectionSettings.filter(
-                field => field[0] !== 'settings'
-              )
-            )}
-          >
-            Delete
-          </Button>
-        </Stack.Item>
-      </Stack>
-      <Box
-        padding='5'
-        background='action-secondary-pressed'
+    <>
+      <Grid.Cell
+        columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}
       >
         <Card>
           {interfaceSectionSettings.map(field => (
@@ -44,7 +22,24 @@ export default function SectionSettings({
             </Card.Section>
           ))}
         </Card>
-      </Box>
-    </Grid.Cell>
+      </Grid.Cell>
+      <Grid.Cell
+        columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}
+      >
+        <Stack>
+          <Stack.Item fill />
+          <Stack.Item>
+            {interfaceSectionSettings.length > 0 && (
+              <Button
+                destructive
+                onClick={() => setInterfaceSectionSettings([])}
+              >
+                Delete all section settings
+              </Button>
+            )}
+          </Stack.Item>
+        </Stack>
+      </Grid.Cell>
+    </>
   )
 }

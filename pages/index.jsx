@@ -35,16 +35,6 @@ export default function Polaris() {
         <br />
         <br />
         <Header />
-        {/* <InputSection
-          inputJson={inputJson}
-          setInputJson={setInputJson}
-          clearInterface={clearInterface}
-          setInterfaceSectionInfos={setInterfaceSectionInfos}
-          setInterfaceSectionSettings={setInterfaceSectionSettings}
-          setInterfaceBlocks={setInterfaceBlocks}
-          setInterfacePresets={setInterfacePresets}
-          generateOutputJson={generateOutputJson}
-        /> */}
         <SchemaInterface
           setOutputJson={setOutputJson}
           interfaceSectionInfos={interfaceSectionInfos}
@@ -57,6 +47,16 @@ export default function Polaris() {
           setInterfacePresets={setInterfacePresets}
           generateOutputJson={generateOutputJson}
           clearInterface={clearInterface}
+        />
+        <InputSection
+          inputJson={inputJson}
+          setInputJson={setInputJson}
+          clearInterface={clearInterface}
+          setInterfaceSectionInfos={setInterfaceSectionInfos}
+          setInterfaceSectionSettings={setInterfaceSectionSettings}
+          setInterfaceBlocks={setInterfaceBlocks}
+          setInterfacePresets={setInterfacePresets}
+          generateOutputJson={generateOutputJson}
         />
         <OutputSection
           outputJson={outputJson}
