@@ -32,7 +32,11 @@ export default function SingleProperty({
           </Text>
         </Stack.Item>
         <Stack.Item>
-          {chave !== 'type' && chave !== 'id' && chave !== 'label' && (
+          {chave !== 'type'
+          && chave !== 'id'
+          && chave !== 'label'
+          && chave !== 'name'
+          && (
             <Button onClick={handleRemoveField} plain>
               Delete
             </Button>

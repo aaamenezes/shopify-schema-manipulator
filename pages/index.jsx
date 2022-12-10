@@ -13,6 +13,7 @@ export default function Polaris() {
   const [ outputJson, setOutputJson ] = useState('')
   const [ schemaInterfaceSection, setSchemaInterfaceSection ] = useState([])
   const [ schemaInterfaceBlocks, setSchemaInterfaceBlocks ] = useState([])
+  const [ schemaInterfacePresets, setSchemaInterfacePresets ] = useState([])
 
   function clearSchemaInterface() {
     setSchemaInterfaceSection([])
@@ -39,6 +40,8 @@ export default function Polaris() {
           setSchemaInterfaceSection={setSchemaInterfaceSection}
           schemaInterfaceBlocks={schemaInterfaceBlocks}
           setSchemaInterfaceBlocks={setSchemaInterfaceBlocks}
+          schemaInterfacePresets={schemaInterfacePresets}
+          setSchemaInterfacePresets={setSchemaInterfacePresets}
           generateOutputJson={generateOutputJson}
           clearSchemaInterface={clearSchemaInterface}
         />
@@ -48,6 +51,7 @@ export default function Polaris() {
           clearSchemaInterface={clearSchemaInterface}
           setSchemaInterfaceSection={setSchemaInterfaceSection}
           setSchemaInterfaceBlocks={setSchemaInterfaceBlocks}
+          setSchemaInterfacePresets={setSchemaInterfacePresets}
           generateOutputJson={generateOutputJson}
         />
         <OutputSection

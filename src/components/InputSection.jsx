@@ -7,6 +7,7 @@ export default function InputSection({
   clearSchemaInterface,
   setSchemaInterfaceSection,
   setSchemaInterfaceBlocks,
+  setSchemaInterfacePresets,
   generateOutputJson,
   generateSchema
 }) {
@@ -23,11 +24,12 @@ export default function InputSection({
       clearSchemaInterface()
       setSchemaInterfaceSection(Object.entries(inputObj))
       setSchemaInterfaceBlocks(inputObj.blocks)
+      setSchemaInterfacePresets(inputObj.presets)
       generateOutputJson()
       setJsonIsValid(true)
     } catch (error) {
       setJsonIsValid(false)
-      // alert(`Os dados inseridos não são um JSON válido\n\n${ error }`)
+      alert(`Os dados inseridos não são um JSON válido\n\n${ error }`)
     }
   }
 
