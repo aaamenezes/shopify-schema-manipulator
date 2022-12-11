@@ -6,12 +6,10 @@ import Header from '../src/components/Header'
 import InputSection from '../src/components/InputSection'
 import initialJson from '../data.json'
 import SchemaInterface from '../src/components/SchemaInterface'
-import OutputSection from '../src/components/OutputSection'
 
 export default function Polaris() {
   const [ inputJson, setInputJson ] = useState(JSON.stringify(initialJson))
   const [ inputJsonIsValid, setInputJsonIsValid ] = useState(true)
-  const [ outputJson, setOutputJson ] = useState('')
   const [ interfaceSectionInfos, setInterfaceSectionInfos ] = useState([])
   const [ interfaceSectionSettings, setInterfaceSectionSettings ] = useState([])
   const [ interfaceBlocks, setInterfaceBlocks ] = useState([])
@@ -22,10 +20,6 @@ export default function Polaris() {
     setInterfaceBlocks([])
   }
 
-  function generateOutputJson() {
-    setOutputJson(`${ [ ...interfaceSectionInfos, ...interfaceBlocks ] }`)
-  }
-
   function generateInterface() {
     if (inputJson === '' || inputJson === '{}') {
       clearInterface()
@@ -33,8 +27,6 @@ export default function Polaris() {
     }
 
     try {
-      clearInterface()
-
       const inputObj = JSON.parse(inputJson)
       const { settings, blocks, presets, ...sectionInfos } = inputObj
 
@@ -42,11 +34,11 @@ export default function Polaris() {
       setInterfaceSectionSettings(settings)
       setInterfaceBlocks(blocks)
       setInterfacePresets(presets)
-      generateOutputJson()
       setInputJsonIsValid(true)
     } catch (error) {
+      clearInterface()
       setInputJsonIsValid(false)
-      alert(`Os dados inseridos não são um JSON válido\n\n${ error }`)
+      // alert(`Os dados inseridos não são um JSON válido\n\n${ error }`)
     }
   }
 
@@ -63,7 +55,6 @@ export default function Polaris() {
         <br />
         <Header />
         <SchemaInterface
-          setOutputJson={setOutputJson}
           interfaceSectionInfos={interfaceSectionInfos}
           setInterfaceSectionInfos={setInterfaceSectionInfos}
           interfaceSectionSettings={interfaceSectionSettings}
@@ -72,7 +63,6 @@ export default function Polaris() {
           setInterfaceBlocks={setInterfaceBlocks}
           interfacePresets={interfacePresets}
           setInterfacePresets={setInterfacePresets}
-          generateOutputJson={generateOutputJson}
           clearInterface={clearInterface}
         />
         <InputSection
@@ -80,9 +70,6 @@ export default function Polaris() {
           setInputJson={setInputJson}
           generateInterface={generateInterface}
           inputJsonIsValid={inputJsonIsValid}
-        />
-        <OutputSection
-          outputJson={outputJson}
         />
       </Page>
     </AppProvider>

@@ -5,7 +5,6 @@ import Field from './Field'
 import BlockSettings from './BlockSettings'
 
 export default function SchemaInterface({
-  setOutputJson,
   interfaceSectionInfos,
   setInterfaceSectionInfos,
   interfaceSectionSettings,
@@ -14,7 +13,6 @@ export default function SchemaInterface({
   setInterfaceBlocks,
   interfacePresets,
   setInterfacePresets,
-  generateOutputJson,
   clearInterface
 }) {
   const [ selectedTabIndex, setSelectedTabIndex ] = useState(0)
@@ -84,14 +82,7 @@ export default function SchemaInterface({
   ]
 
   return (
-    <Card
-      secondaryFooterActions={[
-        { content: 'CLEAR SCHEMA INTERFACE', onAction: clearInterface }
-      ]}
-      primaryFooterAction={{
-        content: 'GENERATE SCHEMA JSON', onAction: generateOutputJson
-      }}
-    >
+    <Card>
       <Tabs
         tabs={tabs}
         selected={selectedTabIndex}
