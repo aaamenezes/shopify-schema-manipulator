@@ -13,12 +13,18 @@ export default function InputSection({
         <TextField
           label='Schema JSON'
           labelHidden
-          value={inputJson}
+          value={
+            JSON.stringify(inputJson, null, 4)
+              .split('\\n')
+              .join('\n')
+              .split('\\')
+              .join('')
+          }
           onChange={newJson => {
             setInputJson(newJson)
             generateInterface(newJson)
           }}
-          // multiline={1}
+          multiline={1}
           error={!inputJsonIsValid && 'The inserted data is an invalid JSON'}
           verticalContent={(
             <KeyboardKey>

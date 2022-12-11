@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react'
 import { AppProvider, Link, Page } from '@shopify/polaris'
 import Header from '../src/components/Header'
 import InputSection from '../src/components/InputSection'
-import initialJson from '../data.json'
 import SchemaInterface from '../src/components/SchemaInterface'
+import initialJson from '../data.json'
 
 export default function Polaris() {
   const [ inputJson, setInputJson ] = useState(JSON.stringify(initialJson))
@@ -20,16 +20,9 @@ export default function Polaris() {
     setInterfaceBlocks([])
   }
 
-  function generateInterface(newJson) {
-    if (newJson === '' || newJson === '{}') {
-      clearInterface()
-      return
-    }
-
+  function generateInterface(newObj) {
     try {
-      const inputObj = JSON.parse(newJson)
-      const { settings, blocks, presets, ...sectionInfos } = inputObj
-
+      const { settings, blocks, presets, ...sectionInfos } = newObj
       setInterfaceSectionInfos(Object.entries(sectionInfos))
       setInterfaceSectionSettings(settings)
       setInterfaceBlocks(blocks)
@@ -42,7 +35,7 @@ export default function Polaris() {
     }
   }
 
-  useEffect(() => generateInterface(inputJson), [])
+  useEffect(() => generateInterface(initialJson), [])
 
   return (
     <AppProvider>
@@ -64,6 +57,7 @@ export default function Polaris() {
           interfacePresets={interfacePresets}
           setInterfacePresets={setInterfacePresets}
           clearInterface={clearInterface}
+          setInputJson={setInputJson}
         />
         <InputSection
           inputJson={inputJson}

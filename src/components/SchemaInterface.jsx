@@ -14,7 +14,8 @@ export default function SchemaInterface({
   setInterfaceBlocks,
   interfacePresets,
   setInterfacePresets,
-  clearInterface
+  clearInterface,
+  setInputJson
 }) {
   const [ selectedTabIndex, setSelectedTabIndex ] = useState(0)
 
@@ -29,14 +30,28 @@ export default function SchemaInterface({
       accessibilityLabel: 'Section infos',
       panelID: 'section-infos-content',
       content: 'Section infos',
-      panelContent: interfaceSectionInfos.map(([ key, value ]) => (
-        <Field
-          chave={key}
-          value={value}
-          interfaceSectionInfos={interfaceSectionInfos}
-          setInterfaceSectionInfos={setInterfaceSectionInfos}
-        />
-      ))
+      panelContent: interfaceSectionInfos.map(([ key, value ]) => {
+        function externalSetState(text) {
+          setInputJson(currentJson => {
+            const currentObj = JSON.parse(currentJson)
+            const newObj = {
+              ...currentObj,
+              [key]: text
+            }
+            return JSON.stringify(newObj)
+          })
+        }
+
+        return (
+          <Field
+            name={key}
+            value={value}
+            externalSetState={externalSetState}
+            interfaceSectionInfos={interfaceSectionInfos}
+            setInterfaceSectionInfos={setInterfaceSectionInfos}
+          />
+        )
+      })
     },
     {
       id: 'section-settings',
@@ -72,7 +87,7 @@ export default function SchemaInterface({
         const data = Object.entries(presetsInfos)[0]
         return (
           <Field
-            chave={data[0]}
+            name={data[0]}
             value={data[1]}
             interfaceSectionInfos={interfaceSectionInfos}
             setInterfaceSectionInfos={setInterfaceSectionInfos}
