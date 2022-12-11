@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AppProvider, Link, Page } from '@shopify/polaris'
 import Header from '../src/components/Header'
 import InputSection from '../src/components/InputSection'
@@ -10,6 +10,7 @@ import OutputSection from '../src/components/OutputSection'
 
 export default function Polaris() {
   const [ inputJson, setInputJson ] = useState(JSON.stringify(initialJson))
+  const [ inputJsonIsValid, setInputJsonIsValid ] = useState(true)
   const [ outputJson, setOutputJson ] = useState('')
   const [ interfaceSectionInfos, setInterfaceSectionInfos ] = useState([])
   const [ interfaceSectionSettings, setInterfaceSectionSettings ] = useState([])
@@ -24,6 +25,37 @@ export default function Polaris() {
   function generateOutputJson() {
     setOutputJson(`${ [ ...interfaceSectionInfos, ...interfaceBlocks ] }`)
   }
+
+  function generateInterface() {
+    if (inputJson === '' || inputJson === '{}') {
+      clearInterface()
+      return
+    }
+
+    try {
+      const inputObj = JSON.parse(inputJson)
+      clearInterface()
+      setInterfaceSectionInfos(
+        Object.entries(inputObj).filter(
+          property => (
+            property[0] !== 'settings'
+            && property[0] !== 'blocks'
+            && property[0] !== 'presets'
+          )
+        )
+      )
+      setInterfaceSectionSettings(inputObj.settings)
+      setInterfaceBlocks(inputObj.blocks)
+      setInterfacePresets(inputObj.presets)
+      generateOutputJson()
+      setInputJsonIsValid(true)
+    } catch (error) {
+      setInputJsonIsValid(false)
+      alert(`Os dados inseridos não são um JSON válido\n\n${ error }`)
+    }
+  }
+
+  useEffect(() => generateInterface(), [])
 
   return (
     <AppProvider>
@@ -51,12 +83,8 @@ export default function Polaris() {
         <InputSection
           inputJson={inputJson}
           setInputJson={setInputJson}
-          clearInterface={clearInterface}
-          setInterfaceSectionInfos={setInterfaceSectionInfos}
-          setInterfaceSectionSettings={setInterfaceSectionSettings}
-          setInterfaceBlocks={setInterfaceBlocks}
-          setInterfacePresets={setInterfacePresets}
-          generateOutputJson={generateOutputJson}
+          generateInterface={generateInterface}
+          inputJsonIsValid={inputJsonIsValid}
         />
         <OutputSection
           outputJson={outputJson}
