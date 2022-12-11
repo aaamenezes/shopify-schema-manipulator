@@ -5,7 +5,9 @@ export default function Field({
   chave,
   value,
   interfaceSectionInfos,
-  setInterfaceSectionInfos
+  setInterfaceSectionInfos,
+  externalState,
+  externalSetState
 }) {
   const [ textFieldValue, setTextFieldValue ] = useState(value)
 
@@ -47,8 +49,15 @@ export default function Field({
       </Stack>
       <TextField
         label={chave}
-        value={textFieldValue}
-        onChange={event => setTextFieldValue(event)}
+        value={externalState || textFieldValue}
+        onChange={text => {
+          if (externalSetState) {
+            externalSetState(text)
+            return
+          }
+
+          setTextFieldValue(text)
+        }}
         labelHidden
       />
     </Grid.Cell>

@@ -3,6 +3,7 @@ import { Card, Grid, Tabs } from '@shopify/polaris'
 import SectionSettings from './SectionSettings'
 import Field from './Field'
 import BlockSettings from './BlockSettings'
+import AddFieldModal from './AddFieldModal'
 
 export default function SchemaInterface({
   interfaceSectionInfos,
@@ -92,6 +93,11 @@ export default function SchemaInterface({
         <Card.Section>
           <Grid gap='5'>
             {tabs[selectedTabIndex].panelContent}
+            <Grid.Cell columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
+              <hr />
+              <br />
+              <AddFieldModal setState={setInterfaceSectionInfos} />
+            </Grid.Cell>
           </Grid>
         </Card.Section>
       </Tabs>

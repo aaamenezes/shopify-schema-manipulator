@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card, Grid, Stack } from '@shopify/polaris'
+import { Button, Card, Grid } from '@shopify/polaris'
 import Collapse from './Collapse'
 
 export default function SectionSettings({
@@ -26,19 +26,14 @@ export default function SectionSettings({
       <Grid.Cell
         columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}
       >
-        <Stack>
-          <Stack.Item fill />
-          <Stack.Item>
-            {interfaceSectionSettings.length > 0 && (
-              <Button
-                destructive
-                onClick={() => setInterfaceSectionSettings([])}
-              >
-                Delete all section settings
-              </Button>
-            )}
-          </Stack.Item>
-        </Stack>
+        {interfaceSectionSettings.length > 0 && (
+          <Button
+            destructive
+            onClick={() => setInterfaceSectionSettings([])}
+          >
+            Delete all section settings
+          </Button>
+        )}
       </Grid.Cell>
     </>
   )
