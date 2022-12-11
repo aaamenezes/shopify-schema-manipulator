@@ -33,20 +33,15 @@ export default function Polaris() {
     }
 
     try {
-      const inputObj = JSON.parse(inputJson)
       clearInterface()
-      setInterfaceSectionInfos(
-        Object.entries(inputObj).filter(
-          property => (
-            property[0] !== 'settings'
-            && property[0] !== 'blocks'
-            && property[0] !== 'presets'
-          )
-        )
-      )
-      setInterfaceSectionSettings(inputObj.settings)
-      setInterfaceBlocks(inputObj.blocks)
-      setInterfacePresets(inputObj.presets)
+
+      const inputObj = JSON.parse(inputJson)
+      const { settings, blocks, presets, ...sectionInfos } = inputObj
+
+      setInterfaceSectionInfos(Object.entries(sectionInfos))
+      setInterfaceSectionSettings(settings)
+      setInterfaceBlocks(blocks)
+      setInterfacePresets(presets)
       generateOutputJson()
       setInputJsonIsValid(true)
     } catch (error) {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Grid, Stack, Text, TextField } from '@shopify/polaris'
 
 export default function SingleProperty({
@@ -7,6 +7,8 @@ export default function SingleProperty({
   interfaceSectionInfos,
   setInterfaceSectionInfos
 }) {
+  const [ textFieldValue, setTextFieldValue ] = useState(value)
+
   function handleRemoveField() {
     const filteredFields = interfaceSectionInfos.filter(field => {
       const [ key, _value ] = field
@@ -45,8 +47,9 @@ export default function SingleProperty({
       </Stack>
       <TextField
         label={chave}
+        value={textFieldValue}
+        onChange={event => setTextFieldValue(event)}
         labelHidden
-        value={value}
       />
     </Grid.Cell>
   )
