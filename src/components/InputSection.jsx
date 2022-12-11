@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, TextField } from '@shopify/polaris'
+import { Card, KeyboardKey, TextField } from '@shopify/polaris'
 
 export default function InputSection({
   inputJson,
@@ -10,6 +10,9 @@ export default function InputSection({
   return (
     <Card title='Schema JSON'>
       <Card.Section>
+        <KeyboardKey>
+          {'{% schema %}'}
+        </KeyboardKey>
         <TextField
           label='Schema JSON'
           labelHidden
@@ -18,10 +21,13 @@ export default function InputSection({
             setInputJson(newJson)
             generateInterface(newJson)
           }}
-          multiline={4}
+          multiline={true ? 0 : 1}
           error={!inputJsonIsValid && 'The inserted data is an invalid JSON'}
           monospaced
         />
+        <KeyboardKey>
+          {'{% schema %}'}
+        </KeyboardKey>
       </Card.Section>
     </Card>
   )
