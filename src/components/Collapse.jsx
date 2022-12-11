@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Collapsible, Grid } from '@shopify/polaris'
-import SingleProperty from './SingleProperty'
+import Field from './Field'
 
 export default function Collapse({
   field,
@@ -27,7 +27,7 @@ export default function Collapse({
               <Grid.Cell
                 columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}
               >
-                <SingleProperty
+                <Field
                   chave={property[0]}
                   value={property[1]}
                   interfaceSectionInfos={interfaceSectionInfos}

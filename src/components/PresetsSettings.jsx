@@ -1,6 +1,6 @@
 import { Button, Card, Grid, Stack, Text } from '@shopify/polaris'
 import React from 'react'
-import SingleProperty from './SingleProperty'
+import Field from './Field'
 
 export default function PresetsSettings({
   presetsInfos,
@@ -29,7 +29,7 @@ export default function PresetsSettings({
       </Stack>
       <Card>
         <Card.Section>
-          <SingleProperty
+          <Field
             chave={chave}
             value={value}
           />

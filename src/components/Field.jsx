@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Grid, Stack, Text, TextField } from '@shopify/polaris'
 
-export default function SingleProperty({
+export default function Field({
   chave,
   value,
   interfaceSectionInfos,

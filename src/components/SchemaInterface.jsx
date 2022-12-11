@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import { Card, Grid, Tabs } from '@shopify/polaris'
 import SectionSettings from './SectionSettings'
-import SingleProperty from './SingleProperty'
+import Field from './Field'
 import BlockSettings from './BlockSettings'
 
 export default function SchemaInterface({
@@ -31,7 +31,7 @@ export default function SchemaInterface({
       panelID: 'section-infos-content',
       content: 'Section infos',
       panelContent: interfaceSectionInfos.map(([ key, value ]) => (
-        <SingleProperty
+        <Field
           chave={key}
           value={value}
           interfaceSectionInfos={interfaceSectionInfos}
@@ -72,7 +72,7 @@ export default function SchemaInterface({
       panelContent: interfacePresets.map(presetsInfos => {
         const data = Object.entries(presetsInfos)[0]
         return (
-          <SingleProperty
+          <Field
             chave={data[0]}
             value={data[1]}
             interfaceSectionInfos={interfaceSectionInfos}

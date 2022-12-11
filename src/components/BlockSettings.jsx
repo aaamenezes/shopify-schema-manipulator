@@ -1,4 +1,4 @@
-import { Box, Button, Card, Grid, Stack, Text } from '@shopify/polaris'
+import { Button, Card, Grid, Stack, Text } from '@shopify/polaris'
 import React from 'react'
 import Collapse from './Collapse'
 
