@@ -10,9 +10,6 @@ export default function InputSection({
   return (
     <Card title='Schema JSON'>
       <Card.Section>
-        <KeyboardKey>
-          {'{% schema %}'}
-        </KeyboardKey>
         <TextField
           label='Schema JSON'
           labelHidden
@@ -21,13 +18,15 @@ export default function InputSection({
             setInputJson(newJson)
             generateInterface(newJson)
           }}
-          multiline={true ? 0 : 1}
+          // multiline={1}
           error={!inputJsonIsValid && 'The inserted data is an invalid JSON'}
+          verticalContent={(
+            <KeyboardKey>
+              {'{% schema %} { ... } {% endschema %}'}
+            </KeyboardKey>
+          )}
           monospaced
         />
-        <KeyboardKey>
-          {'{% schema %}'}
-        </KeyboardKey>
       </Card.Section>
     </Card>
   )

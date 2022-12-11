@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react'
-import { Card, Grid, Tabs } from '@shopify/polaris'
+import { Card, Divider, Grid, Tabs } from '@shopify/polaris'
 import SectionSettings from './SectionSettings'
 import Field from './Field'
 import BlockSettings from './BlockSettings'
@@ -94,7 +94,7 @@ export default function SchemaInterface({
           <Grid gap='5'>
             {tabs[selectedTabIndex].panelContent}
             <Grid.Cell columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
-              <hr />
+              <Divider />
               <br />
               <AddFieldModal setState={setInterfaceSectionInfos} />
             </Grid.Cell>
