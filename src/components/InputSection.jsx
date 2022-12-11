@@ -8,25 +8,19 @@ export default function InputSection({
   inputJsonIsValid
 }) {
   return (
-    <Card
-      title='Input JSON'
-      secondaryFooterActions={[
-        { content: 'CLEAR INPUT JSON', onAction: () => setInputJson('') }
-      ]}
-      primaryFooterAction={{
-        content: 'GENERATE SCHEMA INTERFACE', onAction: generateInterface
-      }}
-    >
+    <Card title='Schema JSON'>
       <Card.Section>
         <TextField
-          label='Input JSON'
+          label='Schema JSON'
           labelHidden
           value={inputJson}
-          onChange={setInputJson}
+          onChange={newJson => {
+            setInputJson(newJson)
+            generateInterface(newJson)
+          }}
           multiline={4}
           error={!inputJsonIsValid && 'The inserted data is an invalid JSON'}
           monospaced
-          selectTextOnFocus
         />
       </Card.Section>
     </Card>

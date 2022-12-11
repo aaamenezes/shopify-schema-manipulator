@@ -20,14 +20,14 @@ export default function Polaris() {
     setInterfaceBlocks([])
   }
 
-  function generateInterface() {
-    if (inputJson === '' || inputJson === '{}') {
+  function generateInterface(newJson) {
+    if (newJson === '' || newJson === '{}') {
       clearInterface()
       return
     }
 
     try {
-      const inputObj = JSON.parse(inputJson)
+      const inputObj = JSON.parse(newJson)
       const { settings, blocks, presets, ...sectionInfos } = inputObj
 
       setInterfaceSectionInfos(Object.entries(sectionInfos))
@@ -42,7 +42,7 @@ export default function Polaris() {
     }
   }
 
-  useEffect(() => generateInterface(), [])
+  useEffect(() => generateInterface(inputJson), [])
 
   return (
     <AppProvider>
