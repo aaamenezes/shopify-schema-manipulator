@@ -11,9 +11,15 @@ export default function Field({
   const [ textFieldValue, setTextFieldValue ] = useState(value)
 
   function handleRemoveField() {
-    setInterface(interfaceSectionInfos => (
-      interfaceSectionInfos.filter(field => field[0] !== name)
+    setInterface(interfaceSettings => (
+      interfaceSettings.filter(field => field[0] !== name)
     ))
+
+    setJson(currentJson => {
+      const newObj = JSON.parse(currentJson)
+      delete newObj[name]
+      return JSON.stringify(newObj)
+    })
   }
 
   function handleChange(text) {

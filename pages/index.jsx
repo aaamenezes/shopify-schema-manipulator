@@ -30,8 +30,8 @@ export default function Polaris() {
       setJsonIsValid(true)
     } catch (error) {
       clearInterface()
-      setJsonIsValid(false)
-      // alert(`Os dados inseridos não são um JSON válido\n\n${ error }`)
+      // setJsonIsValid(false)
+      alert(`Os dados inseridos não são um JSON válido\n\n${ error }`)
     }
   }
 
