@@ -28,7 +28,7 @@ export default function Collapse({
         {Object.entries(field).map(property => (
           <div key={property.id}>
             <Field
-              chave={property[0]}
+              name={property[0]}
               value={property[1]}
               interfaceSectionInfos={interfaceSectionInfos}
               setInterfaceSectionInfos={setInterfaceSectionInfos}

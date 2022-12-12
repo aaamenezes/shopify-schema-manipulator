@@ -43,7 +43,7 @@ export default function AddFieldModal({ setState }) {
         <Grid gap='5'>
           <Grid.Cell columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
             <Field
-              chave='key'
+              name='key'
               externalState={chave}
               externalSetState={setChave}
               cannotDeleteField
@@ -51,7 +51,7 @@ export default function AddFieldModal({ setState }) {
           </Grid.Cell>
           <Grid.Cell columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
             <Field
-              chave='value'
+              name='value'
               externalState={value}
               externalSetState={setValue}
               cannotDeleteField

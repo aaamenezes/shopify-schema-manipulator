@@ -4,21 +4,29 @@ import { Grid, TextField } from '@shopify/polaris'
 export default function Field({
   name,
   value,
-  setInterfaceSectionInfos,
-  externalSetState,
+  setInterface,
+  setJson,
   cannotDeleteField
 }) {
   const [ textFieldValue, setTextFieldValue ] = useState(value)
 
   function handleRemoveField() {
-    setInterfaceSectionInfos(interfaceSectionInfos => (
+    setInterface(interfaceSectionInfos => (
       interfaceSectionInfos.filter(field => field[0] !== name)
     ))
   }
 
   function handleChange(text) {
     setTextFieldValue(text)
-    externalSetState(text)
+
+    setJson(currentJson => {
+      const currentObj = JSON.parse(currentJson)
+      const newObj = {
+        ...currentObj,
+        [name]: text
+      }
+      return JSON.stringify(newObj)
+    })
   }
 
   return (
@@ -29,10 +37,10 @@ export default function Field({
         onChange={handleChange}
         labelAction={
           !cannotDeleteField
-          && name !== 'type1'
-          && name !== 'id1'
-          && name !== 'label1'
-          && name !== 'name1'
+          && name !== 'name'
+          && name !== 'type'
+          && name !== 'id'
+          && name !== 'label'
           && { content: 'Delete', onAction: handleRemoveField }
         }
         autoComplete='off'

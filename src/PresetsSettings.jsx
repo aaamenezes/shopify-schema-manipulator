@@ -30,7 +30,7 @@ export default function PresetsSettings({
       <Card>
         <Card.Section>
           <Field
-            chave={chave}
+            name={chave}
             value={value}
           />
         </Card.Section>

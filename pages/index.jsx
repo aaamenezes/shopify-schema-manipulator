@@ -2,14 +2,14 @@
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react'
 import { AppProvider, Link, Page } from '@shopify/polaris'
-import Header from '../src/components/Header'
-import InputSection from '../src/components/InputSection'
-import SchemaInterface from '../src/components/SchemaInterface'
+import Header from '../src/Header'
+import InputSection from '../src/InputSection'
+import SchemaInterface from '../src/SchemaInterface'
 import initialJson from '../data.json'
 
 export default function Polaris() {
-  const [ inputJson, setInputJson ] = useState(JSON.stringify(initialJson))
-  const [ inputJsonIsValid, setInputJsonIsValid ] = useState(true)
+  const [ json, setJson ] = useState(JSON.stringify(initialJson))
+  const [ jsonIsValid, setJsonIsValid ] = useState(true)
   const [ interfaceSectionInfos, setInterfaceSectionInfos ] = useState([])
   const [ interfaceSectionSettings, setInterfaceSectionSettings ] = useState([])
   const [ interfaceBlocks, setInterfaceBlocks ] = useState([])
@@ -27,10 +27,10 @@ export default function Polaris() {
       setInterfaceSectionSettings(settings)
       setInterfaceBlocks(blocks)
       setInterfacePresets(presets)
-      setInputJsonIsValid(true)
+      setJsonIsValid(true)
     } catch (error) {
       clearInterface()
-      setInputJsonIsValid(false)
+      setJsonIsValid(false)
       // alert(`Os dados inseridos não são um JSON válido\n\n${ error }`)
     }
   }
@@ -57,13 +57,13 @@ export default function Polaris() {
           interfacePresets={interfacePresets}
           setInterfacePresets={setInterfacePresets}
           clearInterface={clearInterface}
-          setInputJson={setInputJson}
+          setJson={setJson}
         />
         <InputSection
-          inputJson={inputJson}
-          setInputJson={setInputJson}
+          json={json}
+          setJson={setJson}
           generateInterface={generateInterface}
-          inputJsonIsValid={inputJsonIsValid}
+          jsonIsValid={jsonIsValid}
         />
       </Page>
     </AppProvider>

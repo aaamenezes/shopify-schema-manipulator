@@ -2,8 +2,8 @@ import React from 'react'
 import { Card, KeyboardKey, TextField } from '@shopify/polaris'
 
 export default function InputSection({
-  inputJson,
-  setInputJson,
+  json,
+  setJson,
   generateInterface,
   inputJsonIsValid
 }) {
@@ -14,14 +14,14 @@ export default function InputSection({
           label='Schema JSON'
           labelHidden
           value={
-            JSON.stringify(inputJson, null, 4)
+            JSON.stringify(json, null, 4)
               .split('\\n')
               .join('\n')
               .split('\\')
               .join('')
           }
           onChange={newJson => {
-            setInputJson(newJson)
+            setJson(newJson)
             generateInterface(newJson)
           }}
           multiline={1}
