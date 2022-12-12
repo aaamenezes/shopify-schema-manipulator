@@ -46,9 +46,8 @@ export default function SchemaInterface({
           <Field
             name={key}
             value={value}
-            externalSetState={externalSetState}
-            interfaceSectionInfos={interfaceSectionInfos}
             setInterfaceSectionInfos={setInterfaceSectionInfos}
+            externalSetState={externalSetState}
           />
         )
       })
