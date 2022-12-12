@@ -99,8 +99,12 @@ export default function SchemaInterface({
             {tabs[selectedTabIndex].panelContent}
             <Grid.Cell columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
               <Divider />
-              <br />
-              <AddFieldModal setState={setInterfaceSectionInfos} />
+            </Grid.Cell>
+            <Grid.Cell columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
+              <AddFieldModal
+                setState={setInterfaceSectionInfos}
+                setJson={setJson}
+              />
             </Grid.Cell>
           </Grid>
         </Card.Section>
