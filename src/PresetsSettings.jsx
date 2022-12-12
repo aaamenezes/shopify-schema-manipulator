@@ -32,6 +32,8 @@ export default function PresetsSettings({
           <Field
             name={chave}
             value={value}
+            // setInterface={}
+            // setJson={}
           />
         </Card.Section>
       </Card>

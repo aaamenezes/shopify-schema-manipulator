@@ -5,7 +5,7 @@ import Field from './Field'
 
 export default function AddFieldModal({ setState }) {
   const [ modalIsOpen, setModalIsOpen ] = useState(false)
-  const [ chave, setChave ] = useState('')
+  const [ key, setKey ] = useState('')
   const [ value, setValue ] = useState('')
 
   const activator = (
@@ -29,7 +29,7 @@ export default function AddFieldModal({ setState }) {
           setState(currentState => (
             [
               ...currentState,
-              [ chave, value ]
+              [ key, value ]
             ]
           ))
           setModalIsOpen(false)
@@ -44,17 +44,17 @@ export default function AddFieldModal({ setState }) {
           <Grid.Cell columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
             <Field
               name='key'
-              externalState={chave}
-              externalSetState={setChave}
-              cannotDeleteField
+              setInterface={setKey}
+              // setJson={setJson}
+              isModal
             />
           </Grid.Cell>
           <Grid.Cell columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
             <Field
               name='value'
-              externalState={value}
-              externalSetState={setValue}
-              cannotDeleteField
+              setInterface={setValue}
+              // setJson={setJson}
+              isModal
             />
           </Grid.Cell>
         </Grid>

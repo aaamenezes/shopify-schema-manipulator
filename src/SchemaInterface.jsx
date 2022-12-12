@@ -78,8 +78,8 @@ export default function SchemaInterface({
             key={presetsInfos.id}
             name={data[0]}
             value={data[1]}
-            interfaceSectionInfos={interfaceSectionInfos}
-            setInterfaceSectionInfos={setInterfaceSectionInfos}
+            setInterface={setInterfaceSectionInfos}
+            // setJson={setJson}
           />
         )
       })

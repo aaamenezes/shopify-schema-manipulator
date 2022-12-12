@@ -6,7 +6,7 @@ export default function Field({
   value,
   setInterface,
   setJson,
-  cannotDeleteField
+  isModal
 }) {
   const [ textFieldValue, setTextFieldValue ] = useState(value)
 
@@ -18,15 +18,18 @@ export default function Field({
 
   function handleChange(text) {
     setTextFieldValue(text)
+    if (isModal) setInterface(text)
 
-    setJson(currentJson => {
-      const currentObj = JSON.parse(currentJson)
-      const newObj = {
-        ...currentObj,
-        [name]: text
-      }
-      return JSON.stringify(newObj)
-    })
+    if (!isModal) {
+      setJson(currentJson => {
+        const currentObj = JSON.parse(currentJson)
+        const newObj = {
+          ...currentObj,
+          [name]: text
+        }
+        return JSON.stringify(newObj)
+      })
+    }
   }
 
   return (
@@ -36,7 +39,7 @@ export default function Field({
         value={textFieldValue}
         onChange={handleChange}
         labelAction={
-          !cannotDeleteField
+          !isModal
           && name !== 'name'
           && name !== 'type'
           && name !== 'id'

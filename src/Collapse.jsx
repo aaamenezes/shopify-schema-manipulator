@@ -4,7 +4,6 @@ import Field from './Field'
 
 export default function Collapse({
   field,
-  interfaceSectionInfos,
   setInterfaceSectionInfos
 }) {
   const [ collapseIsOpen, setCollapseIsOpen ] = useState(false)
@@ -30,8 +29,8 @@ export default function Collapse({
             <Field
               name={property[0]}
               value={property[1]}
-              interfaceSectionInfos={interfaceSectionInfos}
-              setInterfaceSectionInfos={setInterfaceSectionInfos}
+              setInterface={setInterfaceSectionInfos}
+              // setJson={setJson}
             />
             <br />
           </div>
