@@ -46,6 +46,7 @@ export default function SchemaInterface({
           <Field
             name={key}
             value={value}
+            key={`${ key } - ${ value }`}
             setInterfaceSectionInfos={setInterfaceSectionInfos}
             externalSetState={externalSetState}
           />
@@ -71,6 +72,7 @@ export default function SchemaInterface({
       content: 'Blocks',
       panelContent: interfaceBlocks.map(blockInfos => (
         <BlockSettings
+          key={blockInfos.id}
           blockInfos={blockInfos}
           interfaceBlocks={interfaceBlocks}
           setInterfaceBlocks={setInterfaceBlocks}
@@ -86,6 +88,7 @@ export default function SchemaInterface({
         const data = Object.entries(presetsInfos)[0]
         return (
           <Field
+            key={presetsInfos.id}
             name={data[0]}
             value={data[1]}
             interfaceSectionInfos={interfaceSectionInfos}

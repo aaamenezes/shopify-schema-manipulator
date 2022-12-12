@@ -28,7 +28,7 @@ export default function BlockSettings({
       </Stack>
       <Card>
         {blockInfos.settings.map(field => (
-          <Card.Section>
+          <Card.Section key={field.id}>
             <Collapse
               field={field}
               interfaceBlocks={interfaceBlocks}

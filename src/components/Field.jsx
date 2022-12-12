@@ -11,11 +11,9 @@ export default function Field({
   const [ textFieldValue, setTextFieldValue ] = useState(value)
 
   function handleRemoveField() {
-    setInterfaceSectionInfos(interfaceSectionInfos => {
-      interfaceSectionInfos.filter(
-        field => field[0] !== name
-      )
-    })
+    setInterfaceSectionInfos(interfaceSectionInfos => (
+      interfaceSectionInfos.filter(field => field[0] !== name)
+    ))
   }
 
   function handleChange(text) {

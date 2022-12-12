@@ -13,7 +13,7 @@ export default function SectionSettings({
       >
         <Card>
           {interfaceSectionSettings.map(field => (
-            <Card.Section>
+            <Card.Section key={field.id}>
               <Collapse
                 field={field}
                 interfaceSectionSettings={interfaceSectionSettings}

@@ -26,7 +26,7 @@ export default function Collapse({
       )}
       <Collapsible open={collapseIsOpen} id={field.id}>
         {Object.entries(field).map(property => (
-          <>
+          <div key={property.id}>
             <Field
               chave={property[0]}
               value={property[1]}
@@ -34,7 +34,7 @@ export default function Collapse({
               setInterfaceSectionInfos={setInterfaceSectionInfos}
             />
             <br />
-          </>
+          </div>
         ))}
       </Collapsible>
     </>
