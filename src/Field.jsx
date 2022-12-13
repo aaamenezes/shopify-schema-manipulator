@@ -33,6 +33,7 @@ export default function Field({
           ...currentObj,
           [name]: text
         }
+        console.log('JSON.stringify(newObj):', JSON.stringify(newObj))
         return JSON.stringify(newObj)
       })
     }

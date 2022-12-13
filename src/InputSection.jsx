@@ -1,25 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Card, KeyboardKey, TextField } from '@shopify/polaris'
 
-export default function InputSection({
-  json,
-  setJson,
-  generateInterface,
-  jsonIsValid
-}) {
-  const [ textFieldValue, setTextFieldValue ] = useState(JSON
-    .stringify(json, null, 4)
+export default function InputSection({ json, setJson, jsonIsValid }) {
+  const textFieldValue = JSON.stringify(json, null, 4)
     .split('\\n')
     .join('\n')
     .split('\\')
-    .join(''))
-
-  function handleChange(newJson) {
-    setTextFieldValue(newJson)
-    // setJson(newJson)
-    // const newObj = JSON.parse(JSON.stringify(newJson))
-    // generateInterface(newObj)
-  }
+    .join('')
 
   return (
     <Card title='Schema JSON'>
@@ -28,7 +15,7 @@ export default function InputSection({
           label='Schema JSON'
           labelHidden
           value={textFieldValue}
-          onChange={handleChange}
+          onChange={newJson => setJson(newJson)}
           multiline={1}
           error={!jsonIsValid && 'The inserted data is an invalid JSON'}
           verticalContent={(
