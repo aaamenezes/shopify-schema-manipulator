@@ -62,7 +62,6 @@ export default function Polaris() {
         <InputSection
           json={json}
           setJson={setJson}
-          generateInterface={generateInterface}
           jsonIsValid={jsonIsValid}
         />
       </Page>
