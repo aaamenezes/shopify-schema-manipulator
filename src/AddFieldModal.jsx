@@ -1,5 +1,13 @@
 import React, { useState } from 'react'
-import { Button, Grid, Icon, Modal, Stack } from '@shopify/polaris'
+import {
+  Button,
+  Grid,
+  Icon,
+  KeyboardKey,
+  Modal,
+  Stack,
+  Text
+} from '@shopify/polaris'
 import { CirclePlusMinor } from '@shopify/polaris-icons'
 import Field from './Field'
 
@@ -58,20 +66,39 @@ export default function AddFieldModal({ setState, setJson }) {
       <Modal.Section>
         <Grid gap='5'>
           <Grid.Cell columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
-            <Field
-              name='key'
-              setInterface={setKey}
-              // setJson={setJson}
-              isModal
-            />
+            <KeyboardKey>
+              {'{'}
+            </KeyboardKey>
           </Grid.Cell>
           <Grid.Cell columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
-            <Field
-              name='value'
-              setInterface={setValue}
-              // setJson={setJson}
-              isModal
-            />
+            <Stack distribution='center' alignment='center'>
+              <Stack.Item fill>
+                <Field
+                  name='key'
+                  setInterface={setKey}
+                  placeholder='key'
+                  labelHidden
+                  // setJson={setJson}
+                  isModal
+                />
+              </Stack.Item>
+              <Stack.Item>
+                <Text variant='headingLg'>:</Text>
+              </Stack.Item>
+              <Stack.Item fill>
+                <Field
+                  name='value'
+                  setInterface={setValue}
+                  placeholder='value'
+                  labelHidden
+                  // setJson={setJson}
+                  isModal
+                />
+              </Stack.Item>
+            </Stack>
+          </Grid.Cell>
+          <Grid.Cell columnSpan={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
+            <KeyboardKey>{'{'}</KeyboardKey>
           </Grid.Cell>
         </Grid>
       </Modal.Section>

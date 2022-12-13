@@ -6,7 +6,9 @@ export default function Field({
   value,
   setInterface,
   setJson,
-  isModal
+  isModal,
+  labelHidden,
+  placeholder
 }) {
   const [ textFieldValue, setTextFieldValue ] = useState(value)
 
@@ -45,6 +47,8 @@ export default function Field({
         label={name}
         value={textFieldValue}
         onChange={handleChange}
+        labelHidden={labelHidden}
+        placeholder={placeholder}
         labelAction={
           !isModal
           && name !== 'name'
